@@ -1,16 +1,4 @@
-import type { Environment } from "../env"
-
-export interface FactoryOptions {
-    plug: string
-    agent: string
-    entry: string
-    env: any
-    target: HTMLElement
-    payload?: any
-    registry: Registry
-}
-
-export type Factory = (opts: FactoryOptions) => void
+import type { Environment, Factory, FactoryOptions } from "../types"
 
 export class Registry {
     _factories: Map<string, (opts: FactoryOptions) => void>

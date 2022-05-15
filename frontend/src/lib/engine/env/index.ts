@@ -1,8 +1,9 @@
 import type { Pipe } from "../../../services/engine/pipe"
 import { FolderAPI } from "../../api/folder"
 import { Sockd } from "../../sockd"
-import type { SockdMessage } from "../../sockd/message"
+import type { ISockd, SockdMessage } from "../../sockd/types"
 import { SockdRoom } from "../../sockd/room"
+import type { ActionResponse, Environment } from "../types"
 import { actionFetch } from "./fetch"
 
 export interface EnvOptions {
@@ -15,15 +16,9 @@ export interface EnvOptions {
     startup_payload?: any
 }
 
-export interface ActionResponse {
-    status_ok: boolean
-    content_type?: string
-    body: any
-}
-
-export class Environment {
+export class Env implements Environment {
     _opts: EnvOptions // only for debug remove this 
-    _sockd: Sockd
+    _sockd: ISockd
     _sockd_rooms: Map<string, SockdRoom>
     _fetch: (name: string, data: string) => Promise<Response>
 

@@ -98,6 +98,136 @@ class IFramePipe {
     }
 }
 
+;// CONCATENATED MODULE: ../engine/registry/index.ts
+class Registry {
+    constructor() {
+        this.RegisterFactory = (type, name, factory) => {
+            console.log(\`START REGISTER FACTORY => type(\${type}) name(\${name})\`);
+            const key = [type, name].toString();
+            this._factories.set(key, factory);
+            const watchers = this._watchers.get(key);
+            if (watchers) {
+                console.log("Found watchers ", watchers);
+                watchers.forEach((watcher) => watcher());
+            }
+            const typeWatchers = this._type_watchers.get(type);
+            if (typeWatchers) {
+                typeWatchers.forEach((f) => f(factory));
+            }
+            console.log(\`END REGISTER FACTORY => type(\${type}) name(\${name})\`);
+        };
+        this.WatchLoad = async (type, name, timeout) => {
+            console.log("before Watching");
+            const key = [type, name].toString();
+            if (this._factories.has(key)) {
+                console.log("found factories already");
+                return Promise.resolve();
+            }
+            const p = new Promise((resolve, reject) => {
+                console.log("making promise");
+                let oldwatcher = this._watchers.get(key);
+                if (!oldwatcher) {
+                    oldwatcher = new Array(0);
+                }
+                oldwatcher.push(() => {
+                    resolve();
+                });
+                this._watchers.set(key, oldwatcher);
+                setTimeout(() => {
+                    reject(\`TimeOut loading type \${type} & name \${name}\`);
+                }, timeout);
+            });
+            return p;
+        };
+        this.OnTypeLoad = (typename, callback) => {
+            let oldwatcher = this._type_watchers.get(typename);
+            if (!oldwatcher) {
+                oldwatcher = new Array(0);
+            }
+            oldwatcher.push(callback);
+        };
+        this.Get = (type, name) => {
+            const key = [type, name].toString();
+            return this._factories.get(key.toString());
+        };
+        this.GetAll = (type) => {
+            const facts = Array(0);
+            this._factories.forEach((fact, [_type, _]) => {
+                if (type !== _type) {
+                    return;
+                }
+                facts.push(fact);
+            });
+            return facts;
+        };
+        this.InstanceAll = (type, opts) => {
+            this._factories.forEach((fact, key) => {
+                const [_type, _] = key.split(',');
+                if (type !== _type) {
+                    return;
+                }
+                fact(opts);
+            });
+        };
+        this.Instance = (type, name, opts) => {
+            const key = [type, name].toString();
+            this._factories.get(key)(opts);
+        };
+        this._factories = new Map();
+        this._watchers = new Map();
+        this._type_watchers = new Map();
+    }
+}
+const initFactory = () => {
+    if (window["__registry__"]) {
+        console.warn("Registry already loaded, skipping...");
+        return;
+    }
+    const r = new Registry();
+    r.RegisterFactory("loader.factory", "std.loader", async (opts) => {
+        await opts.registry.WatchLoad("plug.factory", opts.entry, 2000);
+        const factory = opts.registry.Get("plug.factory", opts.entry);
+        if (!factory) {
+            console.warn("could not load plug factory");
+            return;
+        }
+    });
+    console.log("GLOBAL_REGISTRY =>", r);
+    window["__registry__"] = r;
+    window["__register_factory__"] = r.RegisterFactory;
+};
+const startExecFactory = async (opts) => {
+    console.log("Before starting factory", opts);
+    const registry = window["__registry__"];
+    if (!registry) {
+        console.warn("registry not found");
+        return;
+    }
+    if (!opts.exec_loader) {
+        opts.exec_loader = "std.loader";
+    }
+    try {
+        await registry.WatchLoad("loader.factory", opts.exec_loader, 10000);
+    }
+    catch (error) {
+        console.warn("could not load, error occured:", error);
+        return;
+    }
+    const plugFactory = registry.Get("loader.factory", opts.exec_loader);
+    if (!opts.target) {
+        opts.target = document.body;
+    }
+    plugFactory({
+        plug: opts.plug,
+        agent: opts.agent,
+        entry: opts.entry,
+        env: opts.env,
+        registry: registry,
+        target: opts.target,
+        payload: opts.payload
+    });
+};
+
 ;// CONCATENATED MODULE: ../api/folder.ts
 class FolderAPI {
     constructor(base_url, ticket) {
@@ -409,7 +539,7 @@ class WebsocketBuilder {
 
 
 
-;// CONCATENATED MODULE: ../core/sockd/sockd.ts
+;// CONCATENATED MODULE: ../sockd/sockd.ts
 
 class Sockd {
     constructor(url) {
@@ -421,8 +551,8 @@ class Sockd {
             const data = JSON.parse(ev.data);
             this._handler(data);
         };
-        this.OnSockdMessage = (handler) => {
-            this._handler = handler;
+        this.OnSockdMessage = (h) => {
+            this._handler = h;
         };
         this.SendSockd = (message) => {
             this._ws.send(JSON.stringify(message));
@@ -435,10 +565,10 @@ class Sockd {
     }
 }
 
-;// CONCATENATED MODULE: ../core/sockd/index.ts
+;// CONCATENATED MODULE: ../sockd/index.ts
 
 
-;// CONCATENATED MODULE: ../core/sockd/message.ts
+;// CONCATENATED MODULE: ../sockd/types/index.ts
 const MESSAGE_SERVER_DIRECT = "server_direct";
 const MESSAGE_SERVER_BROADCAST = "server_broadcast";
 const MESSAGE_SERVER_PUBLISH = "server_publish";
@@ -447,7 +577,7 @@ const MESSAGE_PEER_BROADCAST = "peer_broadcast";
 const MESSAGE_PEER_PUBLISH = "peer_publish";
 
 
-;// CONCATENATED MODULE: ../core/sockd/room.ts
+;// CONCATENATED MODULE: ../sockd/room.ts
 
 class SockdRoom {
     constructor(socket, room) {
@@ -477,7 +607,7 @@ class SockdRoom {
                 from_id: "",
                 room: this._room,
                 targets: targets,
-                ticket: ticket
+                ticket: ticket,
             });
         };
         this.onMessage = (handler) => {
@@ -526,14 +656,14 @@ class SockdRoom {
             return false;
         };
         this.LeaveRoom = () => {
-            // fixme => impl 
+            // fixme => impl
         };
         this._socket = socket;
         this._room = room;
     }
 }
 
-;// CONCATENATED MODULE: ../core/engine/env/fetch.ts
+;// CONCATENATED MODULE: ../engine/env/fetch.ts
 const actionFetch = (actionUrl, token) => async (name, data) => {
     const response = await fetch(\`\${actionUrl}/\${name}\`, {
         method: "POST",
@@ -548,12 +678,12 @@ const actionFetch = (actionUrl, token) => async (name, data) => {
     return response;
 };
 
-;// CONCATENATED MODULE: ../core/engine/env/index.ts
+;// CONCATENATED MODULE: ../engine/env/index.ts
 
 
 
 
-class Environment {
+class Env {
     constructor(opts) {
         this.init = async () => {
             await this._sockd.init();
@@ -635,143 +765,13 @@ class Environment {
     }
 }
 
-;// CONCATENATED MODULE: ../core/engine/registry/index.ts
-class Registry {
-    constructor() {
-        this.RegisterFactory = (type, name, factory) => {
-            console.log(\`START REGISTER FACTORY => type(\${type}) name(\${name})\`);
-            const key = [type, name].toString();
-            this._factories.set(key, factory);
-            const watchers = this._watchers.get(key);
-            if (watchers) {
-                console.log("Found watchers ", watchers);
-                watchers.forEach((watcher) => watcher());
-            }
-            const typeWatchers = this._type_watchers.get(type);
-            if (typeWatchers) {
-                typeWatchers.forEach((f) => f(factory));
-            }
-            console.log(\`END REGISTER FACTORY => type(\${type}) name(\${name})\`);
-        };
-        this.WatchLoad = async (type, name, timeout) => {
-            console.log("before Watching");
-            const key = [type, name].toString();
-            if (this._factories.has(key)) {
-                console.log("found factories already");
-                return Promise.resolve();
-            }
-            const p = new Promise((resolve, reject) => {
-                console.log("making promise");
-                let oldwatcher = this._watchers.get(key);
-                if (!oldwatcher) {
-                    oldwatcher = new Array(0);
-                }
-                oldwatcher.push(() => {
-                    resolve();
-                });
-                this._watchers.set(key, oldwatcher);
-                setTimeout(() => {
-                    reject(\`TimeOut loading type \${type} & name \${name}\`);
-                }, timeout);
-            });
-            return p;
-        };
-        this.OnTypeLoad = (typename, callback) => {
-            let oldwatcher = this._type_watchers.get(typename);
-            if (!oldwatcher) {
-                oldwatcher = new Array(0);
-            }
-            oldwatcher.push(callback);
-        };
-        this.Get = (type, name) => {
-            const key = [type, name].toString();
-            return this._factories.get(key.toString());
-        };
-        this.GetAll = (type) => {
-            const facts = Array(0);
-            this._factories.forEach((fact, [_type, _]) => {
-                if (type !== _type) {
-                    return;
-                }
-                facts.push(fact);
-            });
-            return facts;
-        };
-        this.InstanceAll = (type, opts) => {
-            this._factories.forEach((fact, key) => {
-                const [_type, _] = key.split(',');
-                if (type !== _type) {
-                    return;
-                }
-                fact(opts);
-            });
-        };
-        this.Instance = (type, name, opts) => {
-            const key = [type, name].toString();
-            this._factories.get(key)(opts);
-        };
-        this._factories = new Map();
-        this._watchers = new Map();
-        this._type_watchers = new Map();
-    }
-}
-const initFactory = () => {
-    if (window["__registry__"]) {
-        console.warn("Registry already loaded, skipping...");
-        return;
-    }
-    const r = new Registry();
-    r.RegisterFactory("loader.factory", "std.loader", async (opts) => {
-        await opts.registry.WatchLoad("plug.factory", opts.entry, 2000);
-        const factory = opts.registry.Get("plug.factory", opts.entry);
-        if (!factory) {
-            console.warn("could not load plug factory");
-            return;
-        }
-    });
-    console.log("GLOBAL_REGISTRY =>", r);
-    window["__registry__"] = r;
-    window["__register_factory__"] = r.RegisterFactory;
-};
-const startExecFactory = async (opts) => {
-    console.log("Before starting factory", opts);
-    const registry = window["__registry__"];
-    if (!registry) {
-        console.warn("registry not found");
-        return;
-    }
-    if (!opts.exec_loader) {
-        opts.exec_loader = "std.loader";
-    }
-    try {
-        await registry.WatchLoad("loader.factory", opts.exec_loader, 10000);
-    }
-    catch (error) {
-        console.warn("could not load, error occured:", error);
-        return;
-    }
-    const plugFactory = registry.Get("loader.factory", opts.exec_loader);
-    if (!opts.target) {
-        opts.target = document.body;
-    }
-    plugFactory({
-        plug: opts.plug,
-        agent: opts.agent,
-        entry: opts.entry,
-        env: opts.env,
-        registry: registry,
-        target: opts.target,
-        payload: opts.payload
-    });
-};
-
 ;// CONCATENATED MODULE: ./entry/entry.ts
 
 
 
 console.log("loader init using...");
 initFactory();
-window.addEventListener('load', async () => {
+window.addEventListener("load", async () => {
     const opts = window["__loader_options__"];
     if (!opts) {
         console.log("Loader Options not found");
@@ -779,7 +779,7 @@ window.addEventListener('load', async () => {
     }
     console.log("iframe portal opts @=>", opts);
     const pipe = new IFramePipe(opts.parent_secret);
-    const env = new Environment({
+    const env = new Env({
         agent: opts.agent,
         plug: opts.plug,
         token: opts.token,
@@ -794,7 +794,7 @@ window.addEventListener('load', async () => {
         agent: opts.agent,
         entry: opts.entry,
         env: env,
-        target: document.getElementById('plugroot'),
+        target: document.getElementById("plugroot"),
         exec_loader: opts.exec_loader,
         payload: null,
     });

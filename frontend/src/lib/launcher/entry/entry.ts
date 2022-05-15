@@ -1,44 +1,46 @@
 import { IFramePipe } from "../../../services/engine/pipe";
-import { Environment } from "../../engine/env";
 import type { LoaderOptions } from "../../engine/types";
 import { initFactory, startExecFactory } from "../../engine/registry";
+import { Env } from "../../engine/env";
 
+console.log("loader init using...");
+initFactory();
 
-
-console.log("loader init using...")
-initFactory()
-
-window.addEventListener('load', async () => {
-    const opts = window["__loader_options__"] as LoaderOptions
+window.addEventListener(
+  "load",
+  async () => {
+    const opts = window["__loader_options__"] as LoaderOptions;
     if (!opts) {
-        console.log("Loader Options not found")
-        return
+      console.log("Loader Options not found");
+      return;
     }
 
-    console.log("iframe portal opts @=>", opts)
+    console.log("iframe portal opts @=>", opts);
 
-    const pipe = new IFramePipe(opts.parent_secret)
+    const pipe = new IFramePipe(opts.parent_secret);
 
-    const env = new Environment({
-        agent: opts.agent,
-        plug: opts.plug,
-        token: opts.token,
-        base_url: opts.base_url,
-        parent_secret: opts.parent_secret,
-        pipe,
-    })
+    const env = new Env({
+      agent: opts.agent,
+      plug: opts.plug,
+      token: opts.token,
+      base_url: opts.base_url,
+      parent_secret: opts.parent_secret,
+      pipe,
+    });
 
-    await env.init()
+    await env.init();
 
-    pipe.send("", "env_loaded", {})
+    pipe.send("", "env_loaded", {});
 
     startExecFactory({
-        plug: opts.plug,
-        agent: opts.agent,
-        entry: opts.entry,
-        env: env,
-        target: document.getElementById('plugroot'),
-        exec_loader: opts.exec_loader,
-        payload: null,
-    })
-}, false);
+      plug: opts.plug,
+      agent: opts.agent,
+      entry: opts.entry,
+      env: env,
+      target: document.getElementById("plugroot"),
+      exec_loader: opts.exec_loader,
+      payload: null,
+    });
+  },
+  false
+);
