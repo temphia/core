@@ -1,4 +1,4 @@
-import type { FolderAPI } from "../../../api/folder";
+import type { FolderAPI } from "../../api/folder";
 import type { SockdRoom } from "../../sockd/room";
 import type { ActionResponse } from "../env";
 import type { Registry } from "../registry";

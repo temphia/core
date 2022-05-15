@@ -1,5 +1,5 @@
-import type { Pipe } from "../../../../services/engine/pipe"
-import { FolderAPI } from "../../../api/folder"
+import type { Pipe } from "../../../services/engine/pipe"
+import { FolderAPI } from "../../api/folder"
 import { Sockd } from "../../sockd"
 import type { SockdMessage } from "../../sockd/message"
 import { SockdRoom } from "../../sockd/room"

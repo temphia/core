@@ -1,7 +1,5 @@
-
-
 import type { SockdMessage, SockdHandler } from "./message"
-import { LinearBackoff, LRUBuffer, Websocket, WebsocketBuilder } from "../ws"
+import { LinearBackoff, LRUBuffer, Websocket, WebsocketBuilder } from "../core/ws"
 
 export class Sockd {
     _ws: Websocket

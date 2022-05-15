@@ -1,4 +1,4 @@
-import type { Sockd } from "../lib/core/sockd"
+import type { Sockd } from "../lib/sockd"
 import type {
     DynAPI,
     RepoAPI,

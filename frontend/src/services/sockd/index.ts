@@ -1,6 +1,6 @@
-import type { Sockd } from "../../lib/core/sockd"
-import type { SockdMessage } from "../../lib/core/sockd/message"
-import { SockdRoom } from "../../lib/core/sockd/room"
+import type { Sockd } from "../../lib/sockd"
+import type { SockdMessage } from "../../lib/sockd/message"
+import { SockdRoom } from "../../lib/sockd/room"
 import type { BasicAPI } from "../../lib/api/impl"
 
 

@@ -1,7 +1,7 @@
 import { IFramePipe } from "../../../services/engine/pipe";
-import { Environment } from "../../core/engine/env";
-import type { LoaderOptions } from "../../core/engine/loader";
-import { initFactory, startExecFactory } from "../../core/engine/registry";
+import { Environment } from "../../engine/env";
+import type { LoaderOptions } from "../../engine/types";
+import { initFactory, startExecFactory } from "../../engine/registry";
 
 
 

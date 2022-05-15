@@ -1,4 +1,4 @@
-import { Sockd } from "../core/sockd"
+import { Sockd } from "../sockd"
 import {
     DynAPI,
     RepoAPI,
