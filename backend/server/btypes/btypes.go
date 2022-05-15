@@ -2,7 +2,7 @@ package btypes
 
 import (
 	"github.com/rs/zerolog"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/store"
 
 	"gitlab.com/mr_balloon/golib/hmap"
 )

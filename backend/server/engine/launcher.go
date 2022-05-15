@@ -8,9 +8,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/models/vmodels"
-	"github.com/temphia/temphia/backend/server/lib/apiutils"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/models/vmodels"
+	"github.com/temphia/core/backend/server/lib/apiutils"
 )
 
 // suborigin launcher

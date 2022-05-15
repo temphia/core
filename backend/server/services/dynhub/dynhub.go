@@ -1,11 +1,11 @@
 package dynhub
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/btypes/service"
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/services/sockdhub"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/services/sockdhub"
 )
 
 type DynHub struct {

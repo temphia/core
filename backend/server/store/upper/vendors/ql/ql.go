@@ -3,11 +3,11 @@ package ql
 import (
 	"database/sql"
 
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/lib/dbutils"
-	"github.com/temphia/temphia/backend/server/registry"
-	"github.com/temphia/temphia/backend/server/store/upper"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/lib/dbutils"
+	"github.com/temphia/core/backend/server/registry"
+	"github.com/temphia/core/backend/server/store/upper"
 
 	"github.com/upper/db/v4"
 	"github.com/upper/db/v4/adapter/ql"

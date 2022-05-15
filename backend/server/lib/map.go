@@ -7,7 +7,7 @@ import (
 
 	"github.com/dop251/goja"
 	"github.com/icza/dyno"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 	"gitlab.com/mr_balloon/golib/hmap"

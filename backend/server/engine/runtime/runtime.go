@@ -4,13 +4,13 @@ import (
 	"sync"
 
 	"github.com/rs/zerolog"
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/job"
-	"github.com/temphia/temphia/backend/server/btypes/service"
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/engine/binder"
-	"github.com/temphia/temphia/backend/server/registry"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes/job"
+	"github.com/temphia/core/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/engine/binder"
+	"github.com/temphia/core/backend/server/registry"
 )
 
 var (

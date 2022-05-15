@@ -1,6 +1,6 @@
 package service
 
-import "github.com/temphia/temphia/backend/server/btypes/store"
+import "github.com/temphia/core/backend/server/btypes/store"
 
 type Syncer interface {
 	store.SyncDB

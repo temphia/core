@@ -7,7 +7,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/temphia/temphia/backend/server/lib/kosher"
+	"github.com/temphia/core/backend/server/lib/kosher"
 )
 
 type Ticketer struct {

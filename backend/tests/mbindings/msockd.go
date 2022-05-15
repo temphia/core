@@ -1,6 +1,6 @@
 package mbindings
 
-import "github.com/temphia/temphia/backend/server/btypes/easyerr"
+import "github.com/temphia/core/backend/server/btypes/easyerr"
 
 func (m *MockedBindings) SendDirect(room string, connId []string, payload []byte) error {
 

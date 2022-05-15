@@ -1,8 +1,8 @@
 package basic
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/models/claim"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/claim"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 type RepoListReq struct {

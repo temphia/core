@@ -1,7 +1,7 @@
 package sockdhub
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes/service"
 )
 
 type SockdHub struct {

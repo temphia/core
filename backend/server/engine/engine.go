@@ -10,14 +10,14 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/ztrue/tracerr"
 
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/job"
-	"github.com/temphia/temphia/backend/server/btypes/service"
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/engine/runtime"
-	"github.com/temphia/temphia/backend/server/lib/apiutils"
-	"github.com/temphia/temphia/backend/server/registry"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes/job"
+	"github.com/temphia/core/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/engine/runtime"
+	"github.com/temphia/core/backend/server/lib/apiutils"
+	"github.com/temphia/core/backend/server/registry"
 )
 
 type Engine struct {

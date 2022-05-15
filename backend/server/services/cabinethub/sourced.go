@@ -3,8 +3,8 @@ package cabinethub
 import (
 	"context"
 
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 // fixme => adapter stuff like preview generation and stuff

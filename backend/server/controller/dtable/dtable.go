@@ -1,10 +1,10 @@
 package dtable
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/models/claim"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/service"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/models/claim"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 type Controller struct {

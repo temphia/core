@@ -1,15 +1,15 @@
 package controller
 
 import (
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/service"
-	"github.com/temphia/temphia/backend/server/controller/admin"
-	"github.com/temphia/temphia/backend/server/controller/auth"
-	"github.com/temphia/temphia/backend/server/controller/basic"
-	"github.com/temphia/temphia/backend/server/controller/cabinet"
-	"github.com/temphia/temphia/backend/server/controller/dtable"
-	"github.com/temphia/temphia/backend/server/controller/operator"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/controller/admin"
+	"github.com/temphia/core/backend/server/controller/auth"
+	"github.com/temphia/core/backend/server/controller/basic"
+	"github.com/temphia/core/backend/server/controller/cabinet"
+	"github.com/temphia/core/backend/server/controller/dtable"
+	"github.com/temphia/core/backend/server/controller/operator"
 )
 
 // Controller is Parent controller which holds all and inits all

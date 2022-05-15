@@ -1,6 +1,6 @@
 package binder
 
-import "github.com/temphia/temphia/backend/server/btypes/models/entities"
+import "github.com/temphia/core/backend/server/btypes/models/entities"
 
 func (b *Binder) ListUsers(group string) ([]string, error) {
 	users, err := b.factory.App.CoreHub().ListUsersByGroup(b.namespace, group)

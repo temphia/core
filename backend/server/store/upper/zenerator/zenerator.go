@@ -3,11 +3,11 @@ package zenerator
 import (
 	"fmt"
 
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/store/upper/tns"
-	"github.com/temphia/temphia/backend/server/store/upper/ucore"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/store/upper/tns"
+	"github.com/temphia/core/backend/server/store/upper/ucore"
 )
 
 type zenerator struct {

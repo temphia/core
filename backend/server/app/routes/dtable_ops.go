@@ -3,8 +3,8 @@ package routes
 import (
 	"strconv"
 
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/lib/apiutils/request"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/lib/apiutils/request"
 )
 
 type newRowReq struct {

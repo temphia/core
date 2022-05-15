@@ -1,7 +1,7 @@
 package coredb
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 	"github.com/upper/db/v4"
 )
 

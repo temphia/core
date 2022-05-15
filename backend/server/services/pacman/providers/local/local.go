@@ -6,9 +6,9 @@ import (
 	"path"
 
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/registry"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/registry"
 )
 
 func init() {

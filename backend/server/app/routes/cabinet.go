@@ -5,9 +5,9 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/temphia/temphia/backend/server/btypes/models/claim"
-	"github.com/temphia/temphia/backend/server/lib/apiutils"
-	"github.com/temphia/temphia/backend/server/lib/apiutils/request"
+	"github.com/temphia/core/backend/server/btypes/models/claim"
+	"github.com/temphia/core/backend/server/lib/apiutils"
+	"github.com/temphia/core/backend/server/lib/apiutils/request"
 )
 
 func (r *R) ListCabinetSources(req request.Ctx) {

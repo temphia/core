@@ -1,8 +1,8 @@
 package mbindings
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
 )
 
 func (m *MockedBindings) AddFile(bucket string, file string, contents []byte) error {

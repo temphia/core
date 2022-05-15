@@ -1,9 +1,9 @@
 package service
 
 import (
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/job"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/rtypes/job"
 )
 
 type NodeStats struct {

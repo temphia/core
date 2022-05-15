@@ -1,9 +1,9 @@
 package plane
 
 import (
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/job"
-	"github.com/temphia/temphia/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/btypes/rtypes/job"
+	"github.com/temphia/core/backend/server/btypes/service"
 )
 
 var _ service.ControlPlane = (*PlaneLite)(nil)

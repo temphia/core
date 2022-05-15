@@ -5,8 +5,8 @@ import (
 
 	"github.com/k0kubun/pp"
 
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/event"
-	"github.com/temphia/temphia/backend/server/lib/kosher"
+	"github.com/temphia/core/backend/server/btypes/rtypes/event"
+	"github.com/temphia/core/backend/server/lib/kosher"
 	"github.com/wasmerio/wasmer-go/wasmer"
 )
 

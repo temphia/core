@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gobwas/ws"
 	"github.com/gobwas/ws/wsutil"
-	"github.com/temphia/temphia/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes/service"
 )
 
 var _ service.Conn = (*ConnWS)(nil)

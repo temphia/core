@@ -2,7 +2,7 @@ package corehub
 
 import (
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 func (c *CoreHub) AddUserGroup(ug *entities.UserGroup) error {

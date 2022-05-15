@@ -1,8 +1,8 @@
 package registry
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 var G *Registry

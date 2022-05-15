@@ -1,9 +1,9 @@
 package admin
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/models/claim"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/models/claim"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 func (c *Controller) AddUser(uclaim *claim.Session, user *entities.User) error {

@@ -1,7 +1,7 @@
 package dbdata
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 func DevUnsafeSeed(d store.CoreDB) error {

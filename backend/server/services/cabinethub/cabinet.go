@@ -2,8 +2,8 @@ package cabinethub
 
 import (
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 type CabinetHub struct {

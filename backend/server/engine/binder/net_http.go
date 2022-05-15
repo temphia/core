@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
 )
 
 func (b *Binder) httpCall(request rtypes.HTTPRequest) *rtypes.HTTPResponse {

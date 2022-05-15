@@ -1,7 +1,7 @@
 package env
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/models/claim"
+	"github.com/temphia/core/backend/server/btypes/models/claim"
 )
 
 type Service struct {

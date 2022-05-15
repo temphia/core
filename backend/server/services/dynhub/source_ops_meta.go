@@ -2,8 +2,8 @@ package dynhub
 
 import (
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 // group

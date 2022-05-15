@@ -1,6 +1,6 @@
 package service
 
-import "github.com/temphia/temphia/backend/server/btypes/env"
+import "github.com/temphia/core/backend/server/btypes/env"
 
 type Fencer interface {
 	Service

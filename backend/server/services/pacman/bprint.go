@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 
 	"github.com/rs/xid"
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/models/vmodels"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/vmodels"
 	"github.com/thoas/go-funk"
 )
 

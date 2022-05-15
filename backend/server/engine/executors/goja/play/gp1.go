@@ -3,8 +3,8 @@ package main
 import (
 	"github.com/dop251/goja"
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/event"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/rtypes/event"
 )
 
 func main1() {

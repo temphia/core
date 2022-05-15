@@ -3,8 +3,8 @@ package zenerator
 import (
 	"strings"
 
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 var (

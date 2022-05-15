@@ -6,10 +6,10 @@ import (
 
 	"github.com/k0kubun/pp"
 	"github.com/rs/xid"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/event"
-	"github.com/temphia/temphia/backend/server/engine/executors/wasmer2"
-	"github.com/temphia/temphia/backend/tests/mbindings"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes/event"
+	"github.com/temphia/core/backend/server/engine/executors/wasmer2"
+	"github.com/temphia/core/backend/tests/mbindings"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package ucore
 import (
 	"strings"
 
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 type Zenerator interface {

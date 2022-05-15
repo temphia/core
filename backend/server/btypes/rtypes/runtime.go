@@ -1,9 +1,9 @@
 package rtypes
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/env"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/job"
-	"github.com/temphia/temphia/backend/server/lib"
+	"github.com/temphia/core/backend/server/btypes/env"
+	"github.com/temphia/core/backend/server/btypes/rtypes/job"
+	"github.com/temphia/core/backend/server/lib"
 )
 
 type Runtime interface {

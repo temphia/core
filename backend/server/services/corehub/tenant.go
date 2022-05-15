@@ -1,6 +1,6 @@
 package corehub
 
-import "github.com/temphia/temphia/backend/server/btypes/models/entities"
+import "github.com/temphia/core/backend/server/btypes/models/entities"
 
 func (c *CoreHub) AddTenant(tenant *entities.Tenant) error {
 	return c.coredb.AddTenant(tenant)

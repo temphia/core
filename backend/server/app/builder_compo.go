@@ -4,16 +4,16 @@ import (
 	"fmt"
 
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/engine"
-	"github.com/temphia/temphia/backend/server/services/cabinethub"
-	"github.com/temphia/temphia/backend/server/services/corehub"
-	"github.com/temphia/temphia/backend/server/services/dynhub"
-	"github.com/temphia/temphia/backend/server/services/fencer"
-	"github.com/temphia/temphia/backend/server/services/pacman"
-	"github.com/temphia/temphia/backend/server/services/signer"
-	"github.com/temphia/temphia/backend/server/services/sockcore"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/engine"
+	"github.com/temphia/core/backend/server/services/cabinethub"
+	"github.com/temphia/core/backend/server/services/corehub"
+	"github.com/temphia/core/backend/server/services/dynhub"
+	"github.com/temphia/core/backend/server/services/fencer"
+	"github.com/temphia/core/backend/server/services/pacman"
+	"github.com/temphia/core/backend/server/services/signer"
+	"github.com/temphia/core/backend/server/services/sockcore"
 )
 
 func (b *Builder) buildComponents() error {

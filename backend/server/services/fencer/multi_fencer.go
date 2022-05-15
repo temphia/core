@@ -1,9 +1,9 @@
 package fencer
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/env"
-	"github.com/temphia/temphia/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/env"
+	"github.com/temphia/core/backend/server/btypes/service"
 )
 
 var _ service.Fencer = (*MultiFencer)(nil)

@@ -4,8 +4,8 @@ import (
 	"errors"
 
 	"github.com/dop251/goja"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/event"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes/event"
 )
 
 var _ rtypes.Executor = (*Goja)(nil)

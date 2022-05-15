@@ -1,7 +1,7 @@
 package env
 
 import (
-	claim "github.com/temphia/temphia/backend/server/btypes/models/claim"
+	claim "github.com/temphia/core/backend/server/btypes/models/claim"
 	"gitlab.com/mr_balloon/golib/hmap"
 )
 

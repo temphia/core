@@ -1,7 +1,7 @@
 package store
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 type CoreHub interface {

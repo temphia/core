@@ -4,11 +4,11 @@ import (
 	"context"
 
 	"github.com/rs/zerolog"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/event"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/job"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes/event"
+	"github.com/temphia/core/backend/server/btypes/rtypes/job"
 	"gitlab.com/mr_balloon/golib"
 )
 

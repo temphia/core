@@ -4,8 +4,8 @@ import (
 	"sync"
 
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/event"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/rtypes/event"
 )
 
 type Job struct {

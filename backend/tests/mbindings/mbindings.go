@@ -4,8 +4,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
 )
 
 // var _ rtypes.Bindings = (*MockedBindings)(nil)

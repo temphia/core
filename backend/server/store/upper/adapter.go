@@ -1,16 +1,16 @@
 package upper
 
 import (
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/lib/dbutils"
-	"github.com/temphia/temphia/backend/server/lib/dlock"
-	"github.com/temphia/temphia/backend/server/store/upper/coredb"
-	"github.com/temphia/temphia/backend/server/store/upper/dyndb"
-	"github.com/temphia/temphia/backend/server/store/upper/plugkv"
-	"github.com/temphia/temphia/backend/server/store/upper/tns"
-	"github.com/temphia/temphia/backend/server/store/upper/ucore"
-	"github.com/temphia/temphia/backend/server/store/upper/zenerator"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/lib/dbutils"
+	"github.com/temphia/core/backend/server/lib/dlock"
+	"github.com/temphia/core/backend/server/store/upper/coredb"
+	"github.com/temphia/core/backend/server/store/upper/dyndb"
+	"github.com/temphia/core/backend/server/store/upper/plugkv"
+	"github.com/temphia/core/backend/server/store/upper/tns"
+	"github.com/temphia/core/backend/server/store/upper/ucore"
+	"github.com/temphia/core/backend/server/store/upper/zenerator"
 
 	"github.com/upper/db/v4"
 )

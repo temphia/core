@@ -5,8 +5,8 @@ import (
 
 	"github.com/k0kubun/pp"
 	"github.com/rs/xid"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/service"
 )
 
 var _ service.SockCore = (*SockCore)(nil)

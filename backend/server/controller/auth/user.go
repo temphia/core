@@ -5,12 +5,12 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/env"
-	"github.com/temphia/temphia/backend/server/btypes/models/claim"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/models/vmodels"
-	"github.com/temphia/temphia/backend/server/lib/apiutils"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/env"
+	"github.com/temphia/core/backend/server/btypes/models/claim"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/vmodels"
+	"github.com/temphia/core/backend/server/lib/apiutils"
 )
 
 // https://blog.cloudflare.com/opaque-oblivious-passwords/

@@ -3,7 +3,7 @@ package binder
 import (
 	"sync"
 
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
 )
 
 var _pcache = map[string][]byte{} // fixme => use proper cache libary

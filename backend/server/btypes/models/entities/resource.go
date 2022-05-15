@@ -3,7 +3,7 @@ package entities
 import (
 	"strings"
 
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
 )
 
 const (

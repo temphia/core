@@ -1,8 +1,8 @@
 package rtypes
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 type ModuleOption struct {

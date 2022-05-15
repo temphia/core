@@ -1,8 +1,8 @@
 package dtable
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/models/claim"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/claim"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 func (c *Controller) NewHook(uclaim *claim.Session, tslug string, model *entities.DataHook) error {

@@ -2,8 +2,8 @@ package auth
 
 import (
 	"github.com/rs/xid"
-	"github.com/temphia/temphia/backend/server/btypes/models/claim"
-	"github.com/temphia/temphia/backend/server/btypes/models/vmodels"
+	"github.com/temphia/core/backend/server/btypes/models/claim"
+	"github.com/temphia/core/backend/server/btypes/models/vmodels"
 )
 
 func (c *Controller) refreshService(uclaim *claim.User, opts *vmodels.RefreshReq) *vmodels.RefreshResp {

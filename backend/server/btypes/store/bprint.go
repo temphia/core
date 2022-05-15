@@ -1,8 +1,8 @@
 package store
 
 import (
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 type BPrintLocalStore interface {

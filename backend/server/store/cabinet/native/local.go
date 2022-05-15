@@ -10,12 +10,12 @@ import (
 
 	"github.com/k0kubun/pp"
 
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/registry"
-	"github.com/temphia/temphia/backend/server/store/cabinet"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/registry"
+	"github.com/temphia/core/backend/server/store/cabinet"
 
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/store"
 	"gitlab.com/mr_balloon/golib"
 )
 

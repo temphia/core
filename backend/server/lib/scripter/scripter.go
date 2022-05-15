@@ -2,7 +2,7 @@ package scripter
 
 import (
 	"github.com/dop251/goja"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
 )
 
 type ScriptExecutor struct {

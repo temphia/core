@@ -1,8 +1,8 @@
 package cabinet
 
 import (
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 func NewAdapter(name string, provider func(*config.StoreSource) (store.CabinetSource, error)) func(*config.StoreSource) (store.Store, error) {

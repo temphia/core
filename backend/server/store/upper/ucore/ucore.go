@@ -3,10 +3,10 @@ package ucore
 import (
 	"database/sql"
 
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/btypes/service"
-	"github.com/temphia/temphia/backend/server/lib/dbutils"
-	"github.com/temphia/temphia/backend/server/store/upper/tns"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/lib/dbutils"
+	"github.com/temphia/core/backend/server/store/upper/tns"
 
 	"github.com/upper/db/v4"
 )

@@ -5,7 +5,7 @@ import (
 
 	"github.com/dop251/goja"
 	"github.com/mitchellh/mapstructure"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
 	"gitlab.com/mr_balloon/golib/hmap"
 )
 

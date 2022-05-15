@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"html/template"
 
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
 )
 
 func (b *Binder) SelfGetFile(file string) ([]byte, error) {

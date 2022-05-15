@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes/service"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 )

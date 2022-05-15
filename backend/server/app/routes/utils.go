@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/temphia/temphia/backend/server/lib/apiutils"
+	"github.com/temphia/core/backend/server/lib/apiutils"
 	"github.com/ztrue/tracerr"
 )
 

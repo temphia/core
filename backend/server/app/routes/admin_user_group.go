@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/lib/apiutils/request"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/lib/apiutils/request"
 )
 
 func (r *R) AddUserGroup(ctx request.Ctx) {

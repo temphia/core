@@ -3,7 +3,7 @@ package store
 import (
 	"encoding/json"
 
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 type ModCtx struct {

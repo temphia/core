@@ -3,11 +3,11 @@ package routes
 import (
 	"io"
 
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/models/vmodels"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/vmodels"
 
-	"github.com/temphia/temphia/backend/server/lib/apiutils"
-	"github.com/temphia/temphia/backend/server/lib/apiutils/request"
+	"github.com/temphia/core/backend/server/lib/apiutils"
+	"github.com/temphia/core/backend/server/lib/apiutils/request"
 )
 
 func (r *R) BprintList(ctx request.Ctx) {

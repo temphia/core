@@ -1,7 +1,7 @@
 package processer
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 type Processer interface {

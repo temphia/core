@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/temphia/temphia/backend/server/btypes/models/vmodels"
+	"github.com/temphia/core/backend/server/btypes/models/vmodels"
 )
 
 func (r *R) OperatorIndex(c *gin.Context) {

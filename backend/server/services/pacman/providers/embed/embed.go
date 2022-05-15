@@ -1,8 +1,8 @@
 package local
 
 import (
-	"github.com/temphia/temphia/backend/server/registry"
-	"github.com/temphia/temphia/data"
+	"github.com/temphia/core/backend/server/registry"
+	"github.com/temphia/core/data"
 )
 
 func init() {

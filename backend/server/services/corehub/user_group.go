@@ -1,6 +1,6 @@
 package corehub
 
-import "github.com/temphia/temphia/backend/server/btypes/models/entities"
+import "github.com/temphia/core/backend/server/btypes/models/entities"
 
 func (c *CoreHub) AddUserGroupAuth(data *entities.UserGroupAuth) error {
 	return c.coredb.AddUserGroupAuth(data)

@@ -3,8 +3,8 @@ package binder
 import (
 	"context"
 
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 func (b *Binder) resourceFolder(name string) string {

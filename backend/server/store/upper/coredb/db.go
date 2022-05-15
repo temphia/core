@@ -1,8 +1,8 @@
 package coredb
 
 import (
-	"github.com/temphia/temphia/backend/server/lib/dbutils"
-	"github.com/temphia/temphia/backend/server/store/upper/ucore"
+	"github.com/temphia/core/backend/server/lib/dbutils"
+	"github.com/temphia/core/backend/server/store/upper/ucore"
 
 	"github.com/thoas/go-funk"
 	"github.com/upper/db/v4"

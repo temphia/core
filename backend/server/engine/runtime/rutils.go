@@ -4,11 +4,11 @@ import (
 	"fmt"
 
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/job"
-	"github.com/temphia/temphia/backend/server/engine/binder"
-	"github.com/temphia/temphia/backend/server/helpers/plugloader"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes/job"
+	"github.com/temphia/core/backend/server/engine/binder"
+	"github.com/temphia/core/backend/server/helpers/plugloader"
 	"github.com/ztrue/tracerr"
 )
 

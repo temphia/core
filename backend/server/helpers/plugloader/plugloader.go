@@ -2,9 +2,9 @@ package plugloader
 
 import (
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/models/vmodels"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/vmodels"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 func Load(syncer store.SyncDB, tenantId, plugId, agentId string) (*vmodels.ExecutorData, error) {

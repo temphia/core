@@ -4,15 +4,15 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog"
 
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/app/routes"
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/service"
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/helpers/ginlogger"
-	"github.com/temphia/temphia/backend/server/registry"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/app/routes"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/helpers/ginlogger"
+	"github.com/temphia/core/backend/server/registry"
 
-	"github.com/temphia/temphia/data"
+	"github.com/temphia/core/data"
 )
 
 type Builder struct {

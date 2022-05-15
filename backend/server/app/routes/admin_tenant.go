@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/temphia/temphia/backend/server/lib/apiutils/request"
+	"github.com/temphia/core/backend/server/lib/apiutils/request"
 )
 
 func (r *R) UpdateTenant(ctx request.Ctx) {

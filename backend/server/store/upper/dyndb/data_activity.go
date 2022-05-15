@@ -3,8 +3,8 @@ package dyndb
 import (
 	"fmt"
 
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 	"github.com/upper/db/v4"
 )
 

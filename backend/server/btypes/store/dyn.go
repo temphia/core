@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/rs/xid"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 	"github.com/thoas/go-funk"
 )
 

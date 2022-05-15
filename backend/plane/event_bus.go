@@ -1,7 +1,7 @@
 package plane
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
 type EventBus struct {

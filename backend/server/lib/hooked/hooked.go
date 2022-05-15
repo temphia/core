@@ -2,7 +2,7 @@ package hooked
 
 import (
 	"github.com/dop251/goja"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
 	"github.com/thoas/go-funk"
 )
 

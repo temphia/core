@@ -1,6 +1,6 @@
 package binder
 
-import "github.com/temphia/temphia/backend/server/btypes/service"
+import "github.com/temphia/core/backend/server/btypes/service"
 
 func (b *Binder) sockd() service.SockCore {
 	return b.factory.Sockd

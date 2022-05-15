@@ -6,10 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/k0kubun/pp"
 	"github.com/rs/xid"
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/service"
-	"github.com/temphia/temphia/backend/server/lib/apiutils"
-	"github.com/temphia/temphia/backend/server/services/sockcore/transports"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/lib/apiutils"
+	"github.com/temphia/core/backend/server/services/sockcore/transports"
 )
 
 func (r *R) EngineExecConsole(ctx *gin.Context) {

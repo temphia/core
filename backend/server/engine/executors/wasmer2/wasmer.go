@@ -1,8 +1,8 @@
 package wasmer2
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes/event"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes/event"
 	"github.com/wasmerio/wasmer-go/wasmer"
 )
 

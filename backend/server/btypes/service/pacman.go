@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/models/vmodels"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/models/vmodels"
 	"gitlab.com/mr_balloon/golib/hmap"
 )
 

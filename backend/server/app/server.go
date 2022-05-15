@@ -5,9 +5,9 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/temphia/temphia/backend/server/app/config"
-	"github.com/temphia/temphia/backend/server/app/routes"
-	"github.com/temphia/temphia/backend/server/btypes"
+	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/app/routes"
+	"github.com/temphia/core/backend/server/btypes"
 	"gitlab.com/mr_balloon/golib"
 )
 

@@ -2,7 +2,7 @@ package dynhub
 
 import (
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 func (d *dynSource) NewRow(txid uint32, req store.NewRowReq) (int64, error) {

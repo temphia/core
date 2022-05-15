@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/lib/kosher"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/lib/kosher"
 )
 
 func (b *Binder) HTTPCall(request rtypes.HTTPRequest) *rtypes.HTTPResponse {

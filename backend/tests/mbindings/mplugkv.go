@@ -1,9 +1,9 @@
 package mbindings
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/easyerr"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/store"
 )
 
 func (m *MockedBindings) Set(txid uint32, key, value string, opts *store.SetOptions) error {

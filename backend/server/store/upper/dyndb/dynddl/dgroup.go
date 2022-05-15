@@ -4,9 +4,9 @@ import (
 	"log"
 
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/lib/dbutils"
-	"github.com/temphia/temphia/backend/server/store/upper/ucore"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/lib/dbutils"
+	"github.com/temphia/core/backend/server/store/upper/ucore"
 	"github.com/upper/db/v4"
 )
 

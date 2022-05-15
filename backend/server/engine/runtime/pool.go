@@ -3,7 +3,7 @@ package runtime
 import (
 	"container/list"
 
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
 )
 
 type simplePool struct {

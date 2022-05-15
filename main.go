@@ -5,27 +5,27 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/k0kubun/pp"
-	"github.com/temphia/temphia/backend/plane"
-	"github.com/temphia/temphia/backend/server/app"
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/rtypes"
-	"github.com/temphia/temphia/backend/server/registry"
+	"github.com/temphia/core/backend/plane"
+	"github.com/temphia/core/backend/server/app"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/registry"
 
 	// db devndors
-	_ "github.com/temphia/temphia/backend/server/store/upper/vendors/postgres"
-	_ "github.com/temphia/temphia/backend/server/store/upper/vendors/ql"
-	_ "github.com/temphia/temphia/backend/server/store/upper/vendors/sqlite"
+	_ "github.com/temphia/core/backend/server/store/upper/vendors/postgres"
+	_ "github.com/temphia/core/backend/server/store/upper/vendors/ql"
+	_ "github.com/temphia/core/backend/server/store/upper/vendors/sqlite"
 
 	// blob providers
-	_ "github.com/temphia/temphia/backend/server/store/cabinet/native"
+	_ "github.com/temphia/core/backend/server/store/cabinet/native"
 
 	// repo provider
-	_ "github.com/temphia/temphia/backend/server/services/pacman/providers/embed"
-	_ "github.com/temphia/temphia/backend/server/services/pacman/providers/gitlab"
-	_ "github.com/temphia/temphia/backend/server/services/pacman/providers/local"
+	_ "github.com/temphia/core/backend/server/services/pacman/providers/embed"
+	_ "github.com/temphia/core/backend/server/services/pacman/providers/gitlab"
+	_ "github.com/temphia/core/backend/server/services/pacman/providers/local"
 
-	"github.com/temphia/temphia/backend/server/engine/executors/goja"
-	_ "github.com/temphia/temphia/backend/server/engine/executors/wasmer2"
+	"github.com/temphia/core/backend/server/engine/executors/goja"
+	_ "github.com/temphia/core/backend/server/engine/executors/wasmer2"
 )
 
 func init() {

@@ -1,12 +1,12 @@
 package dyndb
 
 import (
-	"github.com/temphia/temphia/backend/server/btypes/service"
-	"github.com/temphia/temphia/backend/server/btypes/store"
-	"github.com/temphia/temphia/backend/server/lib/dbutils"
-	"github.com/temphia/temphia/backend/server/store/upper/dyndb/dyncore"
-	"github.com/temphia/temphia/backend/server/store/upper/tns"
-	"github.com/temphia/temphia/backend/server/store/upper/ucore"
+	"github.com/temphia/core/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/btypes/store"
+	"github.com/temphia/core/backend/server/lib/dbutils"
+	"github.com/temphia/core/backend/server/store/upper/dyndb/dyncore"
+	"github.com/temphia/core/backend/server/store/upper/tns"
+	"github.com/temphia/core/backend/server/store/upper/ucore"
 
 	"github.com/upper/db/v4"
 )

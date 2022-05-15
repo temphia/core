@@ -4,13 +4,13 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	"github.com/temphia/temphia/backend/server/btypes"
-	"github.com/temphia/temphia/backend/server/btypes/models/claim"
-	"github.com/temphia/temphia/backend/server/btypes/models/entities"
-	"github.com/temphia/temphia/backend/server/btypes/service"
-	"github.com/temphia/temphia/backend/server/lib/apiutils"
-	"github.com/temphia/temphia/backend/server/lib/apiutils/request"
-	"github.com/temphia/temphia/backend/server/services/sockcore/transports"
+	"github.com/temphia/core/backend/server/btypes"
+	"github.com/temphia/core/backend/server/btypes/models/claim"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/service"
+	"github.com/temphia/core/backend/server/lib/apiutils"
+	"github.com/temphia/core/backend/server/lib/apiutils/request"
+	"github.com/temphia/core/backend/server/services/sockcore/transports"
 )
 
 type messageUser struct {
