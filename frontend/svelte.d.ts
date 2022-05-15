@@ -1,4 +1,3 @@
-// svelte.d.ts
-declare module "*.svelte" {
-
+declare module '*.svelte' {
+    export { SvelteComponent as default };
 }
