@@ -1,4 +1,4 @@
-module github.com/temphia/temphia
+module github.com/temphia/core
 
 go 1.16
 
