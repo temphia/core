@@ -1,0 +1,34 @@
+{
+    "name": "Test Group",
+    "slug": "testgrp",
+    "description": "This is test Group",
+    "tables": [
+        {
+            "name": "Hello Table",
+            "slug": "hello",
+            "description": "This hello Table",
+            "icon": "",
+            "main_column": "",
+            "columns": [
+                {
+                    "name": "Hello Message",
+                    "slug": "hm",
+                    "ctype": "shorttext",
+                    "description": "This just have Hello Message",
+                    "icon": "",
+                    "options": [],
+                    "not_nullable": true,
+                    "pattern": "",
+                    "strict_pattern": false
+                }
+            ],
+            "indexes": [],
+            "unique_indexes": [],
+            "fts_index": {},
+            "column_refs": [],
+            "created_at": false,
+            "updated_at": false,
+            "deleted_at": false
+        }
+    ]
+}

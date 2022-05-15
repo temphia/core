@@ -1,0 +1,25 @@
+{
+    "slug": "simple.wizard",
+    "name": "Simple Wizard Example",
+    "executor": "simple.wizard",
+    "handler_hints": {},
+    "resource_hints": {},
+    "agent_hints": {
+        "default": {
+            "name": "default",
+            "type": "console",
+            "invoke_policy": "",
+            "resources": {
+                "extslot": ""
+            },
+            "serve_files": {
+                "client.js": "client.js",
+                "client.css": "client.css"
+            },
+            "entry_name": "",
+            "entry_script": "client.js",
+            "entry_style": "client.css",
+            "exec_loader": "simplewizard.main"
+        }
+    }
+}

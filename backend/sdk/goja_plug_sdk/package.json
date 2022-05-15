@@ -1,0 +1,19 @@
+{
+  "name": "goja_plug_sdk",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bornjre",
+  "license": "ISC",
+  "devDependencies": {
+    "minimist": "^1.2.5",
+    "rollup": "^2.68.0",
+    "rollup-plugin-typescript2": "^0.31.2"
+  },
+  "main": "test/test_entry.ts",
+  "directories": {
+    "test": "test"
+  },
+  "description": ""
+}

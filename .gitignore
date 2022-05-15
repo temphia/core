@@ -1,0 +1,10 @@
+tmp/store_files/dev.db
+tmp/store_files/sync.db
+tmp/store_files/sys.db
+tmp/store_files/temphia.sock
+
+tmp/files/*/
+tmp/filecache/*/
+
+target
+code/sdk/target

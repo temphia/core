@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "backend/sdk/rust_plug_wasm2_sdk",
+    "backend/sdk/rust_plug_wasm2_test"
+]

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+## helper script that should be in your path
+## sudo cp xtemphia /usr/bin/
+
+PROJECTFILE="$PWD/.temphia"
+if [ -f $PROJECTFILE ]; then
+    go run . $@
+else
+    echo "meh.."
+fi

@@ -1,0 +1,27 @@
+{
+    "slug": "pingpong1",
+    "name": "Ping Pong",
+    "executor": "goja",
+    "handler_hints": {
+        "hello": "conexec"
+    },
+    "resource_hints": {
+    },
+    "agent_hints": {
+        "default": {
+            "name": "default",
+            "type": "console",
+            "invoke_policy": "",
+            "resources": {
+                "extslot": ""
+            },
+            "serve_files": {
+                "client.js": "client.js",
+                "client.css": "client.css"
+            },
+            "entry_name": "pingpong1",
+            "entry_script":"client.js",
+            "entry_style": "client.css"
+        }
+    }
+}

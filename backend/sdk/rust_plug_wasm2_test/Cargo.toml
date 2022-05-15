@@ -1,0 +1,14 @@
+[package]
+name = "rust_plug_wasm2_test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# wasm2wat target/wasm32-unknown-unknown/debug/rust_plug_wasm1_test.wasm  -o target/wasm32-unknown-unknown/rust_plug_wasm1_test.wat
+
+[lib]
+crate-type = ["cdylib"]
+
+
+[dependencies]
+rust_plug_wasm2_sdk = { path = "../rust_plug_wasm2_sdk"}
