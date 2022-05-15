@@ -1,6 +1,6 @@
 import { set_authed_data } from "../../lib";
 import { Authenticator } from "../../lib/api";
-import type { SiteData } from "../../lib/core/types";
+import type { SiteData } from "../../lib/core/site";
 
 let auth: Authenticator
 let siteData: SiteData
