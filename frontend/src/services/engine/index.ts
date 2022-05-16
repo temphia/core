@@ -1,6 +1,6 @@
 import { EngineAPI, generateId } from "../../lib";
+import type { PipeMessage } from "../../lib/engine";
 import { iframeTemplateBuild } from "../../lib/launcher/entry/iframe_build";
-import type { PipeMessage } from "./pipe";
 
 const EXEC_TYPE_STD = "stdplug"
 const EXEC_TYPE_DATA = "dataplug"

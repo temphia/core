@@ -41,3 +41,20 @@ export interface FactoryOptions {
 }
 
 export type Factory = (opts: FactoryOptions) => void
+
+// pipe stuff
+
+export interface PipeMessage {
+    action?: string
+    xid: string
+    data: any
+    parent_secret?: string
+}
+
+export type PipeHandler = (xid: string, action: string, data: any) => {}
+
+export interface Pipe {
+    send(xid: string, action: string, data: any): void
+    set_handler(fn: PipeHandler): void
+    remove_handler(fn: PipeHandler): void
+}

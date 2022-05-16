@@ -1,19 +1,6 @@
-export interface PipeMessage {
-    action?: string
-    xid: string
-    data: any
-    parent_secret?: string
-}
+import type { PipeHandler, PipeMessage, Pipe } from "../../lib/engine"
 
-export type PipeHandler = (xid: string, action: string, data: any) => {}
-
-export interface Pipe {
-    send(xid: string, action: string, data: any): void
-    set_handler(fn: PipeHandler): void
-    remove_handler(fn: PipeHandler): void
-}
-
-export class IFramePipe {
+export class IFramePipe implements Pipe {
     _secret: string
     _handlers: Set<PipeHandler>
 
