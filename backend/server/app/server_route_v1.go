@@ -14,6 +14,7 @@ func (s *Server) buildRoutes(e *gin.Engine) {
 
 	{
 		apiv1 := e.Group("/api/:tenant_id/v1/", s.CORS)
+		s.adminTenantAPI(apiv1)
 		s.authAPI(apiv1)
 		s.bprintAPI(apiv1)
 		s.resourceAPI(apiv1)

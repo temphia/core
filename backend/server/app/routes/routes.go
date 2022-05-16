@@ -16,7 +16,6 @@ import (
 	"github.com/temphia/core/backend/server/controller/cabinet"
 	"github.com/temphia/core/backend/server/controller/dtable"
 	"github.com/temphia/core/backend/server/controller/operator"
-	"github.com/temphia/core/backend/server/lib/apiutils/request"
 )
 
 type R struct {
@@ -34,7 +33,6 @@ type R struct {
 	engine         rtypes.Engine
 	signer         service.Signer
 	sockd          service.SockCore
-	revDomains     map[string]string
 }
 
 func New(_app btypes.App, config *config.AppConfig) *R {
@@ -54,12 +52,6 @@ func New(_app btypes.App, config *config.AppConfig) *R {
 		assetFS:        http.FS(_app.Data().AssetAdapter()),
 		engine:         _app.Engine().(rtypes.Engine),
 		sockd:          _app.Sockd().(service.SockCore),
-		revDomains:     make(map[string]string),
 	}
 
-}
-
-func (r *R) domainTenant(req request.Ctx) string {
-
-	return ""
 }
