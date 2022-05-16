@@ -1,2 +1,2 @@
-export * from "./types"
+export * from "./ecore"
 export * from "./plug"

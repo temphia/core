@@ -1,7 +1,7 @@
 import { derived, Readable, writable, Writable } from "svelte/store";
 
 import type { BasicAPI } from "../../lib/api/impl";
-import type { SockdMessage } from "../../lib/sockd/types";
+import type { SockdMessage } from "../../lib/sockd/stypes";
 import type { SockdService } from "../sockd";
 
 export interface Options {

@@ -1,4 +1,4 @@
-import type { SockdHandler, SockdMessage, ISockd, ISockdRoom } from "./types";
+import type { SockdHandler, SockdMessage, ISockd, ISockdRoom } from "./stypes";
 import {
   MESSAGE_SERVER_DIRECT,
   MESSAGE_SERVER_BROADCAST,
@@ -6,7 +6,7 @@ import {
   MESSAGE_PEER_DIRECT,
   MESSAGE_PEER_BROADCAST,
   MESSAGE_PEER_PUBLISH,
-} from "./types";
+} from "./stypes";
 
 export class SockdRoom implements ISockdRoom {
   _socket: ISockd;

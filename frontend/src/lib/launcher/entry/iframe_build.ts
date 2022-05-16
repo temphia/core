@@ -1,4 +1,4 @@
-import type { LoaderOptions } from "../../engine/types"
+import type { LoaderOptions } from "../../engine/ecore"
 import loaderJS from "./entry_generated"
 
 interface iframeBuildOptions {

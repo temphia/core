@@ -1,5 +1,5 @@
 import type { Sockd } from "../../lib/sockd"
-import type { SockdMessage } from "../../lib/sockd/types"
+import type { SockdMessage } from "../../lib/sockd/stypes"
 import { SockdRoom } from "../../lib/sockd/room"
 import type { BasicAPI } from "../../lib/api/impl"
 

@@ -1,8 +1,8 @@
 import { FolderAPI } from "../../api/folder"
 import { Sockd } from "../../sockd"
-import type { ISockd, SockdMessage } from "../../sockd/types"
+import type { ISockd, SockdMessage } from "../../sockd/stypes"
 import { SockdRoom } from "../../sockd/room"
-import type { ActionResponse, Environment, Pipe } from "../types"
+import type { ActionResponse, Environment, Pipe } from "../ecore"
 import { actionFetch } from "./fetch"
 
 export interface EnvOptions {

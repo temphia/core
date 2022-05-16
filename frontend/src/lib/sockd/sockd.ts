@@ -1,4 +1,4 @@
-import type { SockdMessage, SockdHandler, ISockd } from "./types";
+import type { SockdMessage, SockdHandler, ISockd } from "./stypes";
 import {
   LinearBackoff,
   LRUBuffer,
