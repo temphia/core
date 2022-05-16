@@ -12,12 +12,13 @@ type Manager struct {
 	revDomains map[string]string
 }
 
-func NewManager() *Manager {
-	return &Manager{
+func NewManager(cabhub store.CabinetHub, corehub store.CoreHub) Manager {
+	return Manager{
 		cabhub:     nil,
 		corehub:    nil,
 		revDomains: make(map[string]string),
 	}
+
 }
 
 func (m *Manager) ServeIndex(c *gin.Context) {

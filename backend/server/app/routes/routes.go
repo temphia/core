@@ -2,9 +2,12 @@ package routes
 
 import (
 	"net/http"
+	"strings"
 
 	"github.com/gin-gonic/gin"
+	"github.com/k0kubun/pp"
 	"github.com/temphia/core/backend/server/app/config"
+	"github.com/temphia/core/backend/server/app/routes/site"
 	"github.com/temphia/core/backend/server/btypes"
 	"github.com/temphia/core/backend/server/btypes/rtypes"
 	"github.com/temphia/core/backend/server/btypes/service"
@@ -33,6 +36,7 @@ type R struct {
 	engine         rtypes.Engine
 	signer         service.Signer
 	sockd          service.SockCore
+	sitemanager    site.Manager
 }
 
 func New(_app btypes.App, config *config.AppConfig) *R {
@@ -52,6 +56,30 @@ func New(_app btypes.App, config *config.AppConfig) *R {
 		assetFS:        http.FS(_app.Data().AssetAdapter()),
 		engine:         _app.Engine().(rtypes.Engine),
 		sockd:          _app.Sockd().(service.SockCore),
+		sitemanager:    site.NewManager(_app.Cabinet(), _app.CoreHub()),
 	}
 
+}
+
+func (r *R) RootIndex(ctx *gin.Context) {
+	r.sitemanager.ServeIndex(ctx)
+}
+
+func (r *R) NoRoute(c *gin.Context) {
+	curPath := c.Request.URL.Path
+
+	if strings.Contains(curPath, "/assets/") {
+		pp.Println("@@no_path =>", curPath)
+
+		paths := strings.Split(curPath, "/assets/")
+		c.FileFromFS(paths[1], r.assetFS)
+		return
+	}
+
+	if strings.HasPrefix(curPath, "/console") {
+		// fixme => server console root file
+		c.Redirect(http.StatusFound, "/console")
+	}
+
+	r.sitemanager.ServeAny(curPath, c)
 }
