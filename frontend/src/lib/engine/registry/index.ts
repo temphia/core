@@ -1,4 +1,4 @@
-import type { Environment, Factory, FactoryOptions } from "../ecore"
+import type { Environment, Factory, FactoryOptions } from "../ecore/ecore"
 
 export class Registry {
     _factories: Map<string, (opts: FactoryOptions) => void>
