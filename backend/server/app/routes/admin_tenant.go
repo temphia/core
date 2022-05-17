@@ -14,8 +14,6 @@ func (r *R) UpdateTenant(ctx request.Ctx) {
 	// apiutils.WriteFinal(c, err)
 }
 
-// temphia_clusterXXX => xyzmno
-
 func (r *R) NewTenantDomain(ctx request.Ctx)    {}
 func (r *R) ListTenantDomain(ctx request.Ctx)   {}
 func (r *R) GetTenantDomain(ctx request.Ctx)    {}

@@ -1,6 +1,8 @@
 package site
 
 import (
+	"strings"
+
 	"github.com/gin-gonic/gin"
 	"github.com/k0kubun/pp"
 	"github.com/temphia/core/backend/server/btypes/store"
@@ -14,8 +16,8 @@ type Manager struct {
 
 func NewManager(cabhub store.CabinetHub, corehub store.CoreHub) Manager {
 	return Manager{
-		cabhub:     nil,
-		corehub:    nil,
+		cabhub:     cabhub,
+		corehub:    corehub,
 		revDomains: make(map[string]string),
 	}
 
@@ -26,7 +28,7 @@ func (m *Manager) ServeIndex(c *gin.Context) {
 }
 
 func (m *Manager) ServeAny(file string, c *gin.Context) {
-	m.serve(file, c)
+	m.serve(strings.TrimRight(file, "/"), c)
 }
 
 func (m *Manager) serve(file string, c *gin.Context) {
@@ -36,7 +38,7 @@ func (m *Manager) serve(file string, c *gin.Context) {
 	}
 
 	switch c.Request.URL.Hostname() {
-	case "localhost", "127.0.0.1":
+	case "", "localhost":
 		if tenantId == "" {
 			DefaultIndex(c)
 			return
