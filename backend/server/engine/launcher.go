@@ -101,19 +101,6 @@ func (e *Engine) LaunchIFrame(tenantId, plugId, agentId string, ctx *gin.Context
 }
 
 func (e *Engine) Serve(tenantId, plugId, agentId, file string, ctx *gin.Context) {
-
-	// if strings.HasSuffix(file, ".js") {
-	// 	ctx.Writer.Header().Set("Content-Type", "application/javascript")
-	// 	ctx.Writer.Write([]byte(`console.log("plug js loaded")`))
-	// 	return
-	// }
-
-	// if strings.HasSuffix(file, ".css") {
-	// 	ctx.Writer.Header().Set("Content-Type", "text/css")
-	// 	ctx.Writer.Write([]byte(`body {background: black;}`))
-	// 	return
-	// }
-
 	plug, err := e.syncer.PlugGet(tenantId, plugId)
 	if err != nil {
 		apiutils.WriteErr(ctx, err.Error())

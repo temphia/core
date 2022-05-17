@@ -11,8 +11,8 @@ func DefaultIndex(ctx *gin.Context) {
 	  <title>Web Console</title>
 	  </script>
    <link rel="icon" type="image/png" href="/favicon.png" />
-   <link rel="stylesheet"  type="text/css" href="./assets/page_root.css" />
-   <script defer src="./assets/page_root.js"></script>
+   <link rel="stylesheet"  type="text/css" href="/assets/page_root.css" />
+   <script defer src="/assets/page_root.js"></script>
  </head>
  <body></body>
  </html>`))

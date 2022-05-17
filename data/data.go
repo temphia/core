@@ -14,7 +14,7 @@ var (
 	defaultAssetStore *AssetStore
 )
 
-func init() {
+func lazyInit() {
 	var frontendBuild = "frontend/public/build"
 	if exits, _ := golib.FileExists(frontendBuild); !exits {
 		frontendBuild = ""
@@ -53,6 +53,10 @@ type AssetStore struct {
 }
 
 func DefaultNew() *AssetStore {
+	if defaultAssetStore == nil {
+		lazyInit()
+	}
+
 	return defaultAssetStore
 }
 

@@ -48,7 +48,7 @@ func (m *Manager) serve(file string, c *gin.Context) {
 		if tenantId == "" {
 			tenantId = m.lookupTenant(c.Request.URL.Hostname())
 			if tenantId == "" {
-				if file == "index.html" {
+				if file == "index.html" || file == "" {
 					DefaultIndex(c)
 					return
 				}

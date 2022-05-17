@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/k0kubun/pp"
 	"github.com/temphia/core/backend/server/app/config"
 	"github.com/temphia/core/backend/server/app/routes/site"
 	"github.com/temphia/core/backend/server/btypes"
@@ -65,14 +64,14 @@ func (r *R) RootIndex(ctx *gin.Context) {
 	r.sitemanager.ServeIndex(ctx)
 }
 
+const assetPrefix = "/assets/"
+
 func (r *R) NoRoute(c *gin.Context) {
 	curPath := c.Request.URL.Path
 
-	if strings.Contains(curPath, "/assets/") {
-		pp.Println("@@no_path =>", curPath)
-
-		paths := strings.Split(curPath, "/assets/")
-		c.FileFromFS(paths[1], r.assetFS)
+	if strings.Contains(curPath, assetPrefix) {
+		curPath = curPath[len(assetPrefix):]
+		c.FileFromFS(curPath, r.assetFS)
 		return
 	}
 
