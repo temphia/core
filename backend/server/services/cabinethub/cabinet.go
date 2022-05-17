@@ -3,6 +3,8 @@ package cabinethub
 import (
 	"github.com/k0kubun/pp"
 	"github.com/temphia/core/backend/server/btypes/easyerr"
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/service"
 	"github.com/temphia/core/backend/server/btypes/store"
 )
 
@@ -12,13 +14,30 @@ type CabinetHub struct {
 	defName         string
 }
 
+var defaultFolders = []string{"bprints", "data_common", "public"}
+
 func New(sources map[string]store.CabinetSource, defprovider string) *CabinetHub {
-	return &CabinetHub{
+	ch := &CabinetHub{
 		sources:         sources,
 		defaultProvider: sources[defprovider],
 		defName:         defprovider,
 	}
+	return ch
+}
 
+func (c *CabinetHub) Start(eventbus interface{}) error {
+	eb := eventbus.(service.EventBus)
+
+	eb.OnTenantChange(func(tenant, event string, data *entities.Tenant) {
+		switch event {
+		case service.EventCreateTenant:
+			c.defaultProvider.InitilizeTenent(tenant, defaultFolders)
+		default:
+			pp.Println("skipping event")
+		}
+	})
+
+	return nil
 }
 
 func (c *CabinetHub) Default(tenant string) store.CabinetSourced {

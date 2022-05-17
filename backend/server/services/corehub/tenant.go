@@ -1,9 +1,19 @@
 package corehub
 
-import "github.com/temphia/core/backend/server/btypes/models/entities"
+import (
+	"github.com/temphia/core/backend/server/btypes/models/entities"
+	"github.com/temphia/core/backend/server/btypes/service"
+)
 
 func (c *CoreHub) AddTenant(tenant *entities.Tenant) error {
-	return c.coredb.AddTenant(tenant)
+	err := c.coredb.AddTenant(tenant)
+	if err != nil {
+		return err
+	}
+
+	eb := c.cplane.GetEventBus()
+	eb.EmitTenantEvent(tenant.Slug, service.EventCreateTenant, tenant)
+	return nil
 }
 
 func (c *CoreHub) UpdateTenant(slug string, data map[string]interface{}) error {

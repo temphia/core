@@ -53,4 +53,4 @@ func (p *PlaneLite) GetSockdRouter() service.SockdRouter {
 }
 
 // eventbus
-func (p *PlaneLite) GetEventBus() service.EventBus { return nil }
+func (p *PlaneLite) GetEventBus() service.EventBus { return p.eventbus }

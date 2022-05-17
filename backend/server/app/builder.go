@@ -212,6 +212,7 @@ func (b *Builder) Build() error {
 		}
 	}
 
+	b.app.cabinetHub.Start(b.cPlane.GetEventBus())
 	return nil
 
 }

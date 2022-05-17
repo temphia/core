@@ -13,6 +13,7 @@ type BlobInfo struct {
 }
 
 type CabinetHub interface {
+	Start(eventbus interface{}) error
 	Default(tenant string) CabinetSourced
 	ListSources(tenant string) ([]string, error)
 	GetSource(source, tenant string) CabinetSourced

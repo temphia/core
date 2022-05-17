@@ -31,6 +31,12 @@ type ControlPlane interface {
 	GetEventBus() EventBus
 }
 
+const (
+	EventCreateTenant string = "create_tenant"
+	EventUpdateTenant string = "update_tenant"
+	EventDeleteTenant string = "delete_tenant"
+)
+
 type EventBus interface {
 	EmitTenantEvent(tenant string, event string, data *entities.Tenant)
 	EmitUserGroupEvent(event string, data *entities.UserGroup)
