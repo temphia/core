@@ -69,6 +69,7 @@ func (r *R) EngineExecLoaderScript(ctx *gin.Context) {
 
 	out, err := r.engine.ExecutorFile(tenantId, plugId, agentId, fmt.Sprintf("%s_loader.js", loader))
 	if err != nil {
+		pp.Println("@=>", err)
 		return
 	}
 	ctx.Writer.Header().Set("Content-Type", "application/javascript")
@@ -83,6 +84,7 @@ func (r *R) EngineExecLoaderStyle(ctx *gin.Context) {
 
 	out, err := r.engine.ExecutorFile(tenantId, plugId, agentId, fmt.Sprintf("%s_loader.css", loader))
 	if err != nil {
+		pp.Println("@=>", err)
 		return
 	}
 

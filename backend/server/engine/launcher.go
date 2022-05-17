@@ -73,17 +73,11 @@ func (e *Engine) LaunchIFrame(tenantId, plugId, agentId string, ctx *gin.Context
 		return
 	}
 
-	plug, err := e.syncer.PlugGet(tenantId, plugId)
-	if err != nil {
-		apiutils.WriteErr(ctx, err.Error())
-		return
-	}
-
-	// fixme => temporary hack
-
-	if plug.Executor == "simplewizard" {
-		agent.ExecLoader = "simplewizard.main"
-	}
+	// plug, err := e.syncer.PlugGet(tenantId, plugId)
+	// if err != nil {
+	// 	apiutils.WriteErr(ctx, err.Error())
+	// 	return
+	// }
 
 	resp := &vmodels.LoaderOptions{
 		BaseURL:      baseURL(ctx),
