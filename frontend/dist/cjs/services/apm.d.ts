@@ -1,0 +1,32 @@
+import type { Sockd } from "../lib/sockd";
+import type { DynAPI, RepoAPI, BasicAPI, DtableAPI, CabinetAPI, PlugAPI, UserAPI, BprintAPI, ResourceAPI, EngineAPI } from "../lib/api";
+import { ApiBuilder, Options } from "../lib/api";
+import { SockdService } from "./sockd";
+export declare class ApiManager {
+    _api_builder: ApiBuilder;
+    _basic_api: BasicAPI;
+    _sockd: Sockd;
+    _sockd_muxer: SockdService;
+    _dtable_apis: Map<string, DtableAPI>;
+    _cabinet_apis: Map<string, CabinetAPI>;
+    _dyn_api: DynAPI;
+    _plug_api: PlugAPI;
+    _repo_api: RepoAPI;
+    _user_api: UserAPI;
+    _engine_api: EngineAPI;
+    _resource_api: ResourceAPI;
+    _bprint_api: BprintAPI;
+    constructor(opts: Options);
+    init: () => Promise<void>;
+    get_sockd_muxer: () => SockdService;
+    get_dyn_api(): Promise<DynAPI>;
+    get_basic_api(): BasicAPI;
+    get_dtable_api(source: string, group: string): Promise<DtableAPI>;
+    get_cabinet_api(source: string): Promise<CabinetAPI>;
+    get_plug_api(): Promise<PlugAPI>;
+    get_user_api(): Promise<UserAPI>;
+    get_repo_api(): RepoAPI;
+    get_bprint_api(): Promise<BprintAPI>;
+    get_resource_api(): Promise<ResourceAPI>;
+    get_engine_api(): Promise<EngineAPI>;
+}

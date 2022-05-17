@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var ecore_1 = require("./ecore/ecore");
+Object.defineProperty(exports, "MODE_IFRAME", { enumerable: true, get: function () { return ecore_1.MODE_IFRAME; } });
+Object.defineProperty(exports, "MODE_RAW_DOM", { enumerable: true, get: function () { return ecore_1.MODE_RAW_DOM; } });
+Object.defineProperty(exports, "MODE_SUB_ORIGIN", { enumerable: true, get: function () { return ecore_1.MODE_SUB_ORIGIN; } });
+var index_1 = require("./plug/index");
+Object.defineProperty(exports, "registerExecLoaderFactory", { enumerable: true, get: function () { return index_1.registerExecLoaderFactory; } });
+Object.defineProperty(exports, "registerFactory", { enumerable: true, get: function () { return index_1.registerFactory; } });
+Object.defineProperty(exports, "registerPlugFactory", { enumerable: true, get: function () { return index_1.registerPlugFactory; } });
