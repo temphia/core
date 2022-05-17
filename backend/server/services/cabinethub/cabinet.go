@@ -29,12 +29,14 @@ func (c *CabinetHub) Start(eventbus interface{}) error {
 	eb := eventbus.(service.EventBus)
 
 	eb.OnTenantChange(func(tenant, event string, data *entities.Tenant) {
-		switch event {
-		case service.EventCreateTenant:
-			c.defaultProvider.InitilizeTenent(tenant, defaultFolders)
-		default:
-			pp.Println("skipping event")
-		}
+		go func() {
+			switch event {
+			case service.EventCreateTenant:
+				c.defaultProvider.InitilizeTenent(tenant, defaultFolders)
+			default:
+				pp.Println("skipping event")
+			}
+		}()
 	})
 
 	return nil

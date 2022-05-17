@@ -16,15 +16,21 @@ create table tenant_domains(
     id serial primary key,
     name text not null default '',
     about text not null default '',
-    folder text not null default ''
-    index_file text not  null default '',
-    render_type text not null,
-    render_options json not null default '{}',
+    cab_source text not null default '',
+    folder text not null default '',
+    widgets json not null default '{}',
     smtp_user text not null default '',
     smtp_password text not null default '',
     extra_meta json not null default '{}'
 );
 
+create table tenant_wizards(
+    id serial primary key,
+    name text not null default '',
+    plug text not null default '',
+    agent text not null default '',
+    extra_meta json not null default '{}'
+);
 
 create table user_groups(
     name text not null default '',

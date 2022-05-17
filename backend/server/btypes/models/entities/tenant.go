@@ -14,20 +14,18 @@ type Tenant struct {
 }
 
 type TenantDomain struct {
-	Id           int64      `json:"id,omitempty" db:"id,omitempty"`
-	Name         string     `json:"name,omitempty" db:"name,omitempty"`
-	About        string     `json:"about,omitempty" db:"about,omitempty"`
-	Folder       string     `json:"folder,omitempty" db:"folder,omitempty"`
-	IndexFile    string     `json:"index_file,omitempty" db:"index_file,omitempty"`
-	RenderType   string     `json:"render_type,omitempty" db:"render_type,omitempty"`
-	Widgets      JsonStrMap `json:"widgets,omitempty" db:"widgets,omitempty"`
-	RenderOption JsonStrMap `json:"render_options,omitempty" db:"render_options,omitempty"`
-	SMTPUser     string     `json:"smtp_user,omitempty" db:"smtp_user,omitempty"`
-	SMTPPass     string     `json:"smtp_pass,omitempty" db:"smtp_pass,omitempty"`
-	ExtraMeta    JsonStrMap `json:"extra_meta,omitempty" db:"extra_meta,omitempty"`
+	Id        int64      `json:"id,omitempty" db:"id,omitempty"`
+	Name      string     `json:"name,omitempty" db:"name,omitempty"`
+	About     string     `json:"about,omitempty" db:"about,omitempty"`
+	CabSource string     `json:"cab_source,omitempty" db:"cab_source,omitempty"`
+	Folder    string     `json:"folder,omitempty" db:"folder,omitempty"`
+	Widgets   JsonStrMap `json:"widgets,omitempty" db:"widgets,omitempty"` // fixme => json_int_map
+	SMTPUser  string     `json:"smtp_user,omitempty" db:"smtp_user,omitempty"`
+	SMTPPass  string     `json:"smtp_pass,omitempty" db:"smtp_pass,omitempty"`
+	ExtraMeta JsonStrMap `json:"extra_meta,omitempty" db:"extra_meta,omitempty"`
 }
 
-type WidgetHook struct {
+type TenantWizard struct {
 	Id        int64      `json:"id,omitempty" db:"id,omitempty"`
 	Name      string     `json:"name,omitempty" db:"name,omitempty"`
 	Plug      string     `json:"plug,omitempty" db:"plug,omitempty"`
