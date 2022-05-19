@@ -1,51 +1,7 @@
 export default `var __dirname = ''; var module = {}; module['exports']={};/******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
-
-/***/ 135:
-/***/ (() => {
-
-
-
-/***/ }),
-
-/***/ 110:
-/***/ (() => {
-
-
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __nccwpck_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			__webpack_modules__[moduleId](module, module.exports, __nccwpck_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
-/******/ 		}
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+/******/ 	"use strict";
+/******/ 	// The require scope
+/******/ 	var __nccwpck_require__ = {};
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/make namespace object */
@@ -65,9 +21,6 @@ export default `var __dirname = ''; var module = {}; module['exports']={};/*****
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
 // ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
 
@@ -253,8 +206,6 @@ class FolderAPI {
     }
 }
 
-// EXTERNAL MODULE: ../core/ws/backoff/backoff.ts
-var backoff = __nccwpck_require__(135);
 ;// CONCATENATED MODULE: ../core/ws/backoff/linearbackoff.ts
 /**
  * LinearBackoff increases the backoff-time by a constant number with
@@ -285,8 +236,6 @@ class LinearBackoff {
     }
 }
 
-// EXTERNAL MODULE: ../core/ws/buffer/buffer.ts
-var buffer = __nccwpck_require__(110);
 ;// CONCATENATED MODULE: ../core/ws/buffer/lrubuffer.ts
 /**
  * LRUBuffer is a buffer that keeps the last n elements. When it is
@@ -537,8 +486,6 @@ class WebsocketBuilder {
 
 
 
-
-
 ;// CONCATENATED MODULE: ../sockd/sockd.ts
 
 class Sockd {
@@ -565,10 +512,7 @@ class Sockd {
     }
 }
 
-;// CONCATENATED MODULE: ../sockd/index.ts
-
-
-;// CONCATENATED MODULE: ../sockd/types/index.ts
+;// CONCATENATED MODULE: ../sockd/stypes.ts
 const MESSAGE_SERVER_DIRECT = "server_direct";
 const MESSAGE_SERVER_BROADCAST = "server_broadcast";
 const MESSAGE_SERVER_PUBLISH = "server_publish";
@@ -678,7 +622,7 @@ const actionFetch = (actionUrl, token) => async (name, data) => {
     return response;
 };
 
-;// CONCATENATED MODULE: ../engine/env/index.ts
+;// CONCATENATED MODULE: ../engine/env/env.ts
 
 
 
@@ -765,6 +709,9 @@ class Env {
     }
 }
 
+;// CONCATENATED MODULE: ../engine/env/index.ts
+
+
 ;// CONCATENATED MODULE: ./entry/entry.ts
 
 
@@ -799,8 +746,6 @@ window.addEventListener("load", async () => {
         payload: null,
     });
 }, false);
-
-})();
 
 module.exports = __webpack_exports__;
 /******/ })()

@@ -28,7 +28,7 @@
   };
 </script>
 
-<div class="font-thin text-gray-700 truncate overflow-hidden text-sm p-1">
+<div class="text-gray-700 truncate overflow-hidden text-sm p-1">
   {#if row[_column.slug] === null}
     <div />
   {:else if _column.slug in row}

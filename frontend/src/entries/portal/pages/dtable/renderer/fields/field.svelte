@@ -70,7 +70,7 @@
   console.log("EDITing ", row, column);
 </script>
 
-<label for={column.slug} class="pb-2 text-gray-700 font-thin uppercase"
+<label for={column.slug} class="pb-2 text-gray-700 uppercase"
   >{column.name}</label
 >
 

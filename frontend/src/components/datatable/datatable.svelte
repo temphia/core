@@ -279,7 +279,7 @@
                     >
                       <slot name="cell" row={item} column={col}>
                         <div
-                          class="font-thin text-gray-700 truncate overflow-hidden text-sm p-1"
+                          class="text-gray-700 truncate overflow-hidden text-sm p-1"
                         >
                           {rows_index[item][col] || ""}
                         </div>
