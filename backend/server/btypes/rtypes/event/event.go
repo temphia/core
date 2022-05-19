@@ -1,11 +1,17 @@
 package event
 
+import "encoding/json"
+
 type Request struct {
 	Id   string                 `json:"id,omitempty"`
 	Type string                 `json:"type,omitempty"`
 	Name string                 `json:"name,omitempty"`
 	Vars map[string]interface{} `json:"vars,omitempty"`
 	Data []byte                 `json:"data,omitempty"`
+}
+
+func (r *Request) AsStruct(val interface{}) error {
+	return json.Unmarshal(r.Data, val)
 }
 
 type Response struct {
