@@ -7,7 +7,7 @@ type Tenant struct {
 	RootPlug     string     `json:"root_plug,omitempty" db:"root_plug,omitempty"`
 	RootAgent    string     `json:"root_agent,omitempty" db:"root_agent,omitempty"`
 	SmtpUser     string     `json:"smtp_user,omitempty" db:"smtp_user,omitempty"`
-	SmtpPassword string     `json:"smtp_password,omitempty" db:"smtp_password,omitempty"`
+	SmtpPass     string     `json:"smtp_pass,omitempty" db:"smtp_pass,omitempty"`
 	MasterSecret string     `json:"master_secret,omitempty" db:"master_secret,omitempty"`
 	DisableP2P   bool       `json:"disable_p2p,omitempty" db:"disable_p2p,omitempty"`
 	ExtraMeta    JsonStrMap `json:"extra_meta,omitempty" db:"extra_meta,omitempty"`
@@ -19,16 +19,20 @@ type TenantDomain struct {
 	About     string     `json:"about,omitempty" db:"about,omitempty"`
 	CabSource string     `json:"cab_source,omitempty" db:"cab_source,omitempty"`
 	Folder    string     `json:"folder,omitempty" db:"folder,omitempty"`
-	Widgets   JsonStrMap `json:"widgets,omitempty" db:"widgets,omitempty"` // fixme => json_int_map
+	TspPlug   string     `json:"tsp_plug,omitempty" db:"tsp_plug,omitempty"`
+	TspAgent  string     `json:"tsp_agent,omitempty" db:"tsp_agent,omitempty"`
 	SMTPUser  string     `json:"smtp_user,omitempty" db:"smtp_user,omitempty"`
 	SMTPPass  string     `json:"smtp_pass,omitempty" db:"smtp_pass,omitempty"`
 	ExtraMeta JsonStrMap `json:"extra_meta,omitempty" db:"extra_meta,omitempty"`
+	TenantId  string     `json:"tenant_id,omitempty" db:"tenant_id,omitempty"`
 }
 
-type TenantWizard struct {
+type DomainWidget struct {
 	Id        int64      `json:"id,omitempty" db:"id,omitempty"`
 	Name      string     `json:"name,omitempty" db:"name,omitempty"`
 	Plug      string     `json:"plug,omitempty" db:"plug,omitempty"`
 	Agent     string     `json:"agent,omitempty" db:"agent,omitempty"`
+	ExecMeta  JsonMap    `json:"exec_meta,omitempty" db:"exec_meta,omitempty"`
 	ExtraMeta JsonStrMap `json:"extra_meta,omitempty" db:"extra_meta,omitempty"`
+	TenantId  string     `json:"tenant_id,omitempty" db:"tenant_id,omitempty"`
 }

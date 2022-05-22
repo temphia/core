@@ -5,7 +5,7 @@ create table tenants(
     root_plug text not null default '',
     root_agent text not null default '',
     smtp_user text not null default '',
-    smtp_password text not null default '',
+    smtp_pass text not null default '',
     master_secret text not null default '',
     disable_p2p boolean not null default FALSE,
     extra_meta json not null default '{}'
@@ -18,17 +18,21 @@ create table tenant_domains(
     about text not null default '',
     cab_source text not null default '',
     folder text not null default '',
-    widgets json not null default '{}',
+    tsp_plug text not null,
+    tsp_agent text not null,
     smtp_user text not null default '',
-    smtp_password text not null default '',
+    smtp_pass text not null default '',
+    tenant_id text not null,
     extra_meta json not null default '{}'
 );
 
-create table tenant_wizards(
+create table domain_widgets(
     id serial primary key,
     name text not null default '',
     plug text not null default '',
     agent text not null default '',
+    tenant_id text not null,
+    exec_data json not null default '{}',
     extra_meta json not null default '{}'
 );
 
