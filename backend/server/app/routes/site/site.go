@@ -5,6 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/k0kubun/pp"
+	"github.com/temphia/core/backend/server/btypes/rtypes"
 	"github.com/temphia/core/backend/server/btypes/store"
 )
 
@@ -12,6 +13,7 @@ type Manager struct {
 	cabhub     store.CabinetHub
 	corehub    store.CoreHub
 	revDomains map[string]string
+	engine     rtypes.Engine
 }
 
 func NewManager(cabhub store.CabinetHub, corehub store.CoreHub) Manager {
@@ -70,6 +72,17 @@ func (m *Manager) writeFile(c *gin.Context, tenantId, source, folder, file strin
 		csource = m.cabhub.GetSource(tenantId, source)
 	}
 
+	fparts := strings.Split(file, ".")
+
+	if len(fparts) == 2 && fparts[1] == "tsp" {
+		m.processTSP(csource, c, folder, file)
+		return
+	}
+
+	m.completeFileWrite(csource, c, folder, file)
+}
+
+func (m *Manager) completeFileWrite(csource store.CabinetSourced, c *gin.Context, folder, file string) {
 	out, err := csource.GetBlob(c, folder, file)
 	if err != nil {
 		pp.Println(err)

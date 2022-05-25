@@ -26,6 +26,14 @@ create table tenant_domains(
     extra_meta json not null default '{}'
 );
 
+create table tenant_repos(
+    id serial primary key,
+    name text not null default '',
+    provider text not null default '',
+    extra_meta json not null default '{}'
+    tenant_id text not null
+);
+
 create table domain_widgets(
     id serial primary key,
     name text not null default '',
