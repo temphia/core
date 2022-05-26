@@ -17,40 +17,27 @@ func (r *R) EngineExecConsole(ctx *gin.Context) {
 	plugId := ctx.Param("plug_id")
 	agentId := ctx.Param("agent_id")
 	action := ctx.Param("action")
-	r.engine.OnConsoleExec(tenantId, plugId, agentId, action, ctx)
+	r.engine.ExecAction(tenantId, plugId, agentId, action, ctx)
 }
 
-func (r *R) EngineExecRaw(ctx *gin.Context) {
-	tenantId := ctx.Param("tenant_id")
-	plugId := ctx.Param("plug_id")
-	agentId := ctx.Param("agent_id")
-	action := ctx.Param("action")
-	r.engine.OnRawExec(tenantId, plugId, agentId, action, ctx)
-}
-
-// fixme => remove this
-func (r *R) EngineExecFed(ctx *gin.Context) {
-	tenantId := ctx.Param("tenant_id")
-	resourceId := ctx.Param("resource_id")
-	action := ctx.Param("action")
-	r.engine.OnFedExec(tenantId, resourceId, action, ctx)
-}
-
-func (r *R) EngineSRLauncher(ctx *gin.Context) {
-	tenantId := ctx.Param("tenant_id")
-	plugId := ctx.Param("plug_id")
-	agentId := ctx.Param("agent_id")
-	r.engine.LaunchSubOrigin(tenantId, plugId, agentId, ctx)
-}
-
-func (r *R) EngineIFrameLauncher(ctx *gin.Context) {
+func (r *R) EngineLaunchExecHTML(ctx *gin.Context) {
 	tenantId := ctx.Param("tenant_id")
 	plugId := ctx.Param("plug_id")
 	agentId := ctx.Param("agent_id")
 
 	// fixme => also extract other ctx
 
-	r.engine.LaunchIFrame(tenantId, plugId, agentId, ctx)
+	r.engine.ClientLaunchExec(tenantId, plugId, agentId, "ssr", ctx)
+}
+
+func (r *R) EngineLaunchExec(ctx *gin.Context) {
+	tenantId := ctx.Param("tenant_id")
+	plugId := ctx.Param("plug_id")
+	agentId := ctx.Param("agent_id")
+
+	// fixme => also extract other ctx
+
+	r.engine.ClientLaunchExec(tenantId, plugId, agentId, "", ctx)
 }
 
 func (r *R) EngineServe(ctx *gin.Context) {
@@ -58,7 +45,8 @@ func (r *R) EngineServe(ctx *gin.Context) {
 	plugId := ctx.Param("plug_id")
 	agentId := ctx.Param("agent_id")
 	file := ctx.Param("file")
-	r.engine.Serve(tenantId, plugId, agentId, file, ctx)
+	pp.Println(tenantId, plugId, agentId, file)
+	//	r.engine.ServePlugFile(tenantId, plugId, agentId, file, ctx)
 }
 
 func (r *R) EngineExecLoaderScript(ctx *gin.Context) {
@@ -67,13 +55,7 @@ func (r *R) EngineExecLoaderScript(ctx *gin.Context) {
 	agentId := ctx.Param("agent_id")
 	loader := ctx.Param("loader")
 
-	out, err := r.engine.ExecutorFile(tenantId, plugId, agentId, fmt.Sprintf("%s_loader.js", loader))
-	if err != nil {
-		pp.Println("@=>", err)
-		return
-	}
-	ctx.Writer.Header().Set("Content-Type", "application/javascript")
-	ctx.Writer.Write(out)
+	r.engine.ServeExecutorFile(tenantId, plugId, agentId, fmt.Sprintf("%s_loader.js", loader), ctx)
 }
 
 func (r *R) EngineExecLoaderStyle(ctx *gin.Context) {
@@ -82,14 +64,7 @@ func (r *R) EngineExecLoaderStyle(ctx *gin.Context) {
 	agentId := ctx.Param("agent_id")
 	loader := ctx.Param("loader")
 
-	out, err := r.engine.ExecutorFile(tenantId, plugId, agentId, fmt.Sprintf("%s_loader.css", loader))
-	if err != nil {
-		pp.Println("@=>", err)
-		return
-	}
-
-	ctx.Writer.Header().Set("Content-Type", "text/css")
-	ctx.Writer.Write(out)
+	r.engine.ServeExecutorFile(tenantId, plugId, agentId, fmt.Sprintf("%s_loader.css", loader), ctx)
 }
 
 func (r *R) PlugSocket(c *gin.Context) {

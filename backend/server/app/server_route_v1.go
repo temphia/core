@@ -321,10 +321,14 @@ func (s *Server) dtableAPI(apiv1 *gin.RouterGroup) {
 
 func (s *Server) engineAPI(apiv1 *gin.RouterGroup) {
 	mux := apiv1.Group("/engine/:plug_id/:agent_id")
-	mux.POST("/exec_con/:action", s.routes.EngineExecConsole)
-	mux.Any("/exec_raw/:action", s.routes.EngineExecRaw)
-	mux.GET("/launcher/html", s.routes.EngineSRLauncher)
-	mux.POST("/launcher/json", s.routes.EngineIFrameLauncher)
+
+	// fixme => redo the APIs
+
+	// mux.Any("/exec_raw/:action", s.routes.EngineExecConsole)
+
+	mux.Any("/exec_con/:action", s.routes.EngineExecConsole)
+	mux.GET("/launcher/html", s.routes.EngineLaunchExecHTML)
+	mux.POST("/launcher/json", s.routes.EngineLaunchExec)
 	mux.GET("/referer_ticket", nil) // fixme => generate referer ticket
 	mux.GET("/serve/:file", s.routes.EngineServe)
 	mux.GET("/executor/:loader/loader.js", s.routes.EngineExecLoaderScript)

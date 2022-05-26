@@ -8,13 +8,10 @@ type Engine interface {
 	Run() error
 	GetRuntime() Runtime
 
-	OnConsoleExec(tenantId, plugId, agentId, action string, ctx *gin.Context)
-	OnRawExec(tenantId, plugId, agentId, action string, ctx *gin.Context)
-	OnFedExec(tenantId, resourceId, action string, ctx *gin.Context)
-	LaunchSubOrigin(tenantId, plugId, agentId string, ctx *gin.Context)
-	LaunchIFrame(tenantId, plugId, agentId string, ctx *gin.Context)
+	ServerLaunchExec(tenantId, plugId, agentId, mode string, arg interface{}, resp interface{}) error
+	ClientLaunchExec(tenantId, plugId, agentId, mode string, ctx *gin.Context)
 
-	Serve(tenantId, plugId, agentId, file string, ctx *gin.Context)
-
-	ExecutorFile(tenantId, plugId, agentId, loader string) ([]byte, error)
+	ExecAction(tenantId, plugId, agentId, action string, ctx *gin.Context)
+	ServePlugFile(tenantId, plugId, agentId, file string, ctx *gin.Context)
+	ServeExecutorFile(tenantId, plugId, agentId, loader string, ctx *gin.Context)
 }
