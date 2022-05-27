@@ -1,3 +1,5 @@
+create EXTENSION if not exists hstore;
+
 create table tenants(
     slug text not null,
     name text not null default '',
@@ -30,7 +32,7 @@ create table tenant_repos(
     id serial primary key,
     name text not null default '',
     provider text not null default '',
-    extra_meta json not null default '{}'
+    extra_meta json not null default '{}',
     tenant_id text not null
 );
 
@@ -199,7 +201,7 @@ create table saved_tokens(
 --- DYNDB
 
 
-create EXTENSION if not exists hstore;
+
 
 create table data_table_groups (
     slug TEXT not null,
@@ -402,15 +404,15 @@ create table agents(
     id text not null,
     name text not null default '',
     type text not null default '',
+    plug_id text not null,
+
     invoke_policy text not null default '',
-    plug_id text not null default '',
-    resources json not null default '{}',
-    serv_files json not null default '{}',
     entry_name text not null default '',
     entry_script text not null default '',
     entry_style text not null default '',
     exec_loader text not null default '',
-    ext_scripts json not null default '{}',
+
+    resources json not null default '{}',
     env_vars json not null default '{}',
     extra_meta json not null default '{}',
     serve_files json not null default '{}',
@@ -418,6 +420,7 @@ create table agents(
     foreign KEY(plug_id, tenant_id) references plugs(id, tenant_id),
     primary KEY(id, plug_id, tenant_id)
 );
+
 create table resources(
     id text not null,
     name text not null default '',
@@ -430,4 +433,35 @@ create table resources(
     extra_meta json not null default '{}',
     tenant_id text not null,
     primary KEY(id, tenant_id)
+);
+
+create table plug_links(
+    id serial primary key,
+    name text not null default '',
+    from_plug_id text not null,
+    from_agent_id text not null,
+    to_plug_id text not null,
+    to_agent_id text not null,
+    to_handler text not null default '',
+    tenant_id text not null,
+    foreign KEY(to_plug_id, tenant_id) references plugs(id, tenant_id),
+    foreign KEY(to_plug_id, to_agent_id, tenant_id) references agents(id,plug_id, tenant_id),
+
+    foreign KEY(from_plug_id, tenant_id) references plugs(id, tenant_id),
+    foreign KEY(from_plug_id, from_agent_id, tenant_id) references agents(id,plug_id, tenant_id),
+
+    extra_meta json not null default '{}'
+);
+
+create table plug_extensions(
+    id serial primary key,
+    name text not null default '',
+    plug_id text not null,
+    agent_id text not null,
+    brpint_id text not null,
+    ref_file text not null,
+    tenant_id text not null,
+    extra_meta json not null default '{}',
+    foreign KEY(plug_id, tenant_id) references plugs(id, tenant_id),
+    foreign KEY(plug_id, agent_id, tenant_id) references agents(id,plug_id, tenant_id)
 );

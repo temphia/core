@@ -27,19 +27,29 @@ type Agent struct {
 	EntryStyle  string `json:"entry_style,omitempty" db:"entry_style,omitempty"`
 	ExecLoader  string `json:"exec_loader,omitempty" db:"exec_loader,omitempty"`
 
-	ExtScripts JsonStrMap `json:"ext_scripts,omitempty" db:"ext_scripts,omitempty"`
-	ExtraMeta  JsonStrMap `json:"extra_meta,omitempty" db:"extra_meta,omitempty"`
-	TenantId   string     `json:"tenant_id,omitempty" db:"tenant_id,omitempty"`
+	ExtraMeta JsonStrMap `json:"extra_meta,omitempty" db:"extra_meta,omitempty"`
+	TenantId  string     `json:"tenant_id,omitempty" db:"tenant_id,omitempty"`
 }
 
-type Connection struct {
-	Id        string     `json:"id,omitempty" db:"id,omitempty"`
+type PlugLink struct {
+	Id        int64      `json:"id,omitempty" db:"id,omitempty"`
 	Name      string     `json:"name,omitempty" db:"name,omitempty"`
-	Type      string     `json:"type,omitempty" db:"type,omitempty"`
-	FromPlug  string     `json:"from_plug,omitempty" db:"from_plug,omitempty"`
-	FromAgent string     `json:"from_agent,omitempty" db:"from_agent,omitempty"`
-	ToPlug    string     `json:"to_plug,omitempty" db:"to_plug,omitempty"`
-	ToAgent   string     `json:"to_agent,omitempty" db:"to_agent,omitempty"`
-	Handler   string     `json:"handler,omitempty" db:"handler,omitempty"`
+	FromPlug  string     `json:"from_plug_id,omitempty" db:"from_plug_id,omitempty"`
+	FromAgent string     `json:"from_agent_id,omitempty" db:"from_agent_id,omitempty"`
+	ToPlug    string     `json:"to_plug_id,omitempty" db:"to_plug,omitempty"`
+	ToAgent   string     `json:"to_agent_id,omitempty" db:"to_agent,omitempty"`
+	ToHandler string     `json:"to_handler,omitempty" db:"to_handler,omitempty"`
 	ExtraMeta JsonStrMap `json:"extra_meta,omitempty" db:"extra_meta,omitempty"`
+	TenantId  string     `json:"tenant_id,omitempty" db:"tenant_id,omitempty"`
+}
+
+type PlugExtension struct {
+	Id        int64      `json:"id,omitempty" db:"id,omitempty"`
+	Name      string     `json:"name,omitempty" db:"name,omitempty"`
+	Plug      string     `json:"plug_id,omitempty" db:"plug_id,omitempty"`
+	Agent     string     `json:"agent_id,omitempty" db:"agent_id,omitempty"`
+	RefFile   string     `json:"ref_file,omitempty" db:"ref_file,omitempty"`
+	BprintId  string     `json:"bprint_id,omitempty" db:"bprint_id,omitempty"`
+	ExtraMeta JsonStrMap `json:"extra_meta,omitempty" db:"extra_meta,omitempty"`
+	TenantId  string     `json:"tenant_id,omitempty" db:"tenant_id,omitempty"`
 }
