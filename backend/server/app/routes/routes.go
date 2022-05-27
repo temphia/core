@@ -6,7 +6,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/temphia/core/backend/server/app/config"
-	"github.com/temphia/core/backend/server/app/routes/site"
+	"github.com/temphia/core/backend/server/app/routes/hoster"
+
 	"github.com/temphia/core/backend/server/btypes"
 	"github.com/temphia/core/backend/server/btypes/rtypes"
 	"github.com/temphia/core/backend/server/btypes/service"
@@ -35,7 +36,7 @@ type R struct {
 	engine         rtypes.Engine
 	signer         service.Signer
 	sockd          service.SockCore
-	sitemanager    site.Manager
+	sitemanager    hoster.Manager
 }
 
 func New(_app btypes.App, config *config.AppConfig) *R {
@@ -55,7 +56,7 @@ func New(_app btypes.App, config *config.AppConfig) *R {
 		assetFS:        http.FS(_app.Data().AssetAdapter()),
 		engine:         _app.Engine().(rtypes.Engine),
 		sockd:          _app.Sockd().(service.SockCore),
-		sitemanager:    site.NewManager(_app.Cabinet(), _app.CoreHub()),
+		sitemanager:    hoster.NewManager(_app.Cabinet(), _app.CoreHub()),
 	}
 
 }

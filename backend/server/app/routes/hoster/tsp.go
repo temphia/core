@@ -1,4 +1,4 @@
-package site
+package hoster
 
 import (
 	"github.com/gin-gonic/gin"
