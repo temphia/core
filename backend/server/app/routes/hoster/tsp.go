@@ -7,7 +7,7 @@ import (
 	"github.com/temphia/core/backend/server/btypes/store"
 )
 
-func (m *Manager) processTSP(csource store.CabinetSourced, c *gin.Context, folder, file string) {
+func (m *Manager) processTSP(src store.CabinetSourced, TenantId, host, folder, file string, c *gin.Context) {
 
 	runtime := m.engine.GetRuntime()
 
