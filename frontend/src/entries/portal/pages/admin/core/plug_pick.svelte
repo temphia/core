@@ -23,10 +23,8 @@
     },
   ];
 
-
-  let selected_plug = ""
-  let selected_agent = ""
-
+  let selected_plug = "";
+  let selected_agent = "";
 
   const load = async () => {
     const papi = await app.apm.get_plug_api();
@@ -35,8 +33,6 @@
   };
 
   load();
-
-
 </script>
 
 <div class="flex flex-col w-full">
@@ -49,21 +45,12 @@
       class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
     >
       <tr>
-        <th scope="col" class="p-4">
-          <div class="flex items-center">
-            <input
-              id="checkbox-all-search"
-              type="checkbox"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label for="checkbox-all-search" class="sr-only">checkbox</label>
-          </div>
-        </th>
-        <th scope="col" class="px-6 py-3"> Id </th>
-        <th scope="col" class="px-6 py-3"> Name </th>
-        <th scope="col" class="px-6 py-3"> Executor </th>
-        <th scope="col" class="px-6 py-3"> Owner</th>
-        <th scope="col" class="px-6 py-3"> Bprint Id</th>
+        <th scope="col" class="p-1" />
+        <th scope="col" class="px-2 py-1"> Id </th>
+        <th scope="col" class="px-2 py-1"> Name </th>
+        <th scope="col" class="px-2 py-1"> Executor </th>
+        <th scope="col" class="px-2 py-1"> Owner</th>
+        <th scope="col" class="px-2 py-1"> Bprint Id</th>
       </tr>
     </thead>
     <tbody>
@@ -107,20 +94,11 @@
       class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
     >
       <tr>
-        <th scope="col" class="p-4">
-          <div class="flex items-center">
-            <input
-              id="checkbox-all-search"
-              type="checkbox"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label for="checkbox-all-search" class="sr-only">checkbox</label>
-          </div>
-        </th>
-        <th scope="col" class="px-6 py-3"> Id </th>
-        <th scope="col" class="px-6 py-3"> Name </th>
-        <th scope="col" class="px-6 py-3"> Type </th>
-        <th scope="col" class="px-6 py-3"> Plug Id</th>
+        <th scope="col" class="p-1" />
+        <th scope="col" class="px-2 py-1"> Id </th>
+        <th scope="col" class="px-2 py-1"> Name </th>
+        <th scope="col" class="px-2 py-1"> Type </th>
+        <th scope="col" class="px-2 py-1"> Plug Id</th>
       </tr>
     </thead>
     <tbody>
