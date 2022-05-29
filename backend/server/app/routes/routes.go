@@ -65,6 +65,10 @@ func (r *R) RootIndex(ctx *gin.Context) {
 	r.sitemanager.ServeIndex(ctx)
 }
 
+func (r *R) StartPage(ctx *gin.Context) {
+	hoster.DefaultIndex(ctx)
+}
+
 const assetPrefix = "/assets/"
 
 func (r *R) NoRoute(c *gin.Context) {

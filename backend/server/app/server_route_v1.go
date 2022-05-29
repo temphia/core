@@ -10,7 +10,8 @@ func (s *Server) buildRoutes(e *gin.Engine) {
 	pp.Println("Building routes")
 
 	e.GET("/", s.routes.RootIndex)
-	e.GET("console/", s.routes.AdminRoot2)
+	e.GET("/temphia-start", s.routes.StartPage)
+	e.GET("/console", s.routes.AdminRoot2)
 	e.GET("/auth", s.routes.AuthIndex2)
 	s.operatorAPI(e.Group("/operator"))
 
