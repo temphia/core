@@ -75,7 +75,7 @@ func (m *Manager) writeFile(c *gin.Context, tenantId, source, folder, file strin
 	fparts := strings.Split(file, ".")
 
 	if len(fparts) == 2 && fparts[1] == "tsp" {
-		m.processTSP(csource, c, folder, file)
+		m.processTSP(csource, tenantId, "", folder, "", c)
 		return
 	}
 

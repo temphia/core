@@ -160,7 +160,6 @@ func (b *PacMan) installPlug(tenantId string, model *entities.BPrint, opts *vmod
 			EntryName:    hintAgent.EntryName,
 			EntryScript:  hintAgent.EntryScript,
 			EntryStyle:   hintAgent.EntryStyle,
-			ExtScripts:   nil,
 			ExtraMeta:    entities.JsonStrMap{},
 			TenantId:     tenantId,
 			ExecLoader:   hintAgent.ExecLoader,
