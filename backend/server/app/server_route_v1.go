@@ -9,8 +9,12 @@ func (s *Server) buildRoutes(e *gin.Engine) {
 
 	pp.Println("Building routes")
 
-	s.assets(e)
-	s.operatorAPI(e)
+	e.GET("/", s.routes.RootIndex)
+	e.GET("console/", s.routes.AdminRoot2)
+	e.GET("/auth", s.routes.AuthIndex2)
+	s.operatorAPI(e.Group("/operator"))
+
+	e.NoRoute(s.routes.NoRoute)
 
 	{
 		apiv1 := e.Group("/api/:tenant_id/v1/", s.CORS)
@@ -30,14 +34,6 @@ func (s *Server) buildRoutes(e *gin.Engine) {
 
 }
 
-func (s *Server) assets(engine *gin.Engine) {
-
-	engine.GET("/", s.routes.RootIndex)
-	engine.GET("console/", s.routes.AdminRoot2)
-	engine.NoRoute(s.routes.NoRoute)
-	engine.GET("/auth", s.routes.AuthIndex2)
-}
-
 func (s *Server) authAPI(api *gin.RouterGroup) {
 	auth := api.Group("/auth")
 	auth.POST("/login", s.routes.Login)
@@ -46,18 +42,19 @@ func (s *Server) authAPI(api *gin.RouterGroup) {
 	auth.POST("/refresh_from_pair_token", s.routes.RefreshFromPairToken)
 }
 
-func (s *Server) operatorAPI(engine *gin.Engine) {
+func (s *Server) operatorAPI(op *gin.RouterGroup) {
 
-	opTen := engine.Group("/operator/tenant")
+	op.GET("/", s.routes.OperatorIndex)
+	op.POST("/login", s.routes.OperatorLogin)
+	op.GET("/stats", s.routes.OperatorStats)
+
+	opTen := op.Group("/tenant")
+
 	opTen.GET("/", s.routes.OperatorListTenant)
 	opTen.POST("/", s.routes.OperatorAddTenant)
 	opTen.PATCH("/", s.routes.OperatorUpdateTenant)
 	opTen.DELETE("/", s.routes.OperatorDeleteTenant)
 	opTen.POST("/token", s.routes.OperatorTenantToken)
-	engine.GET("/operator/stats", s.routes.OperatorStats)
-
-	engine.GET("/operator", s.routes.OperatorIndex)
-	engine.POST("/operator/login", s.routes.OperatorLogin)
 
 }
 
