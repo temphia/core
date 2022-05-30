@@ -23,6 +23,6 @@ func New(engine rtypes.Engine, pacman service.Pacman) *Renderer {
 	}
 }
 
-func (r *Renderer) Render(domain string) error {
+func (r *Renderer) Render(domain string) ([]byte, error) {
 	return r.render(domain)
 }

@@ -20,6 +20,8 @@ type DomainRenderer struct {
 	Template            *pongo2.TemplateSet
 	ThemeBprint         string
 	OverrideThemeBprint string
+	RootBprint          string
+	RootPrefix          string
 
 	// wizards             map[string]int64
 }

@@ -7,22 +7,19 @@ replace github.com/coreos/bbolt => go.etcd.io/bbolt v1.3.5
 require (
 	github.com/alecthomas/repr v0.0.0-20210801044451-80ca428c5142
 	github.com/antonmedv/expr v1.9.0
-	github.com/araddon/qlbridge v0.0.2
 	github.com/brianvoe/gofakeit/v6 v6.11.1
 	github.com/dop251/goja v0.0.0-20210904102640-6338b3246846
 	github.com/fatih/color v1.13.0 // indirect
+	github.com/flosch/pongo2/v5 v5.0.0
 	github.com/gin-gonic/gin v1.7.4
 	github.com/gobwas/ws v1.1.0
 	github.com/goccy/go-yaml v1.9.5
-	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/google/btree v1.0.1 // indirect
 	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/hako/branca v0.0.0-20200807062402-6052ac720505
 	github.com/hashicorp/golang-lru v0.5.4
 	github.com/icza/dyno v0.0.0-20210726202311-f1bafe5d9996
-	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/k0kubun/colorstring v0.0.0-20150214042306-9440f1994b88 // indirect
 	github.com/k0kubun/pp v3.0.1+incompatible
@@ -46,7 +43,6 @@ require (
 	github.com/ztrue/tracerr v0.3.0
 	gitlab.com/mr_balloon/golib v0.0.0-20210813185029-b13a7945a495
 	golang.org/x/crypto v0.0.0-20210813211128-0a44fdfbc16e
-	golang.org/x/net v0.0.0-20210813160813-60bc85c4be6d // indirect
 	golang.org/x/sys v0.0.0-20220315194320-039c03cc5b86 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect

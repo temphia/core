@@ -24,6 +24,8 @@ func (r *Renderer) domainRenderer(domain string) (*DomainRenderer, error) {
 		Template:            nil,
 		ThemeBprint:         opts.Theme,
 		OverrideThemeBprint: opts.OverrideTheme,
+		RootBprint:          "",
+		RootPrefix:          "",
 	}
 
 	loader := pongo2.NewFSLoader(dr)
@@ -38,12 +40,15 @@ func (r *Renderer) domainRenderOptions(domain string) (*RenderOptions, error) {
 	return nil, nil
 }
 
-func (r *Renderer) render(domain string) error {
+func (r *Renderer) render(domain string) ([]byte, error) {
 	dr, err := r.domainRenderer(domain)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	pp.Println(dr)
-	return nil
+
+	dr.Template.RenderTemplateFile("file", nil)
+
+	return nil, nil
 }
