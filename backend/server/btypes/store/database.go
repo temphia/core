@@ -9,19 +9,19 @@ type CoreHub interface {
 	TenantOps
 	SyncDB
 	UserMessageOps
-
 	UserGroupExtra
 }
 
+type SyncDB interface {
+	BprintOps
+	PlugOps
+}
+
 type CoreDB interface {
-	UserOps
-	TenantOps
-	SyncDB
+	CoreHub
+
 	Migrate() error
 	GetInnerDriver() interface{}
-	UserMessageOps
-
-	UserGroupExtra
 }
 
 type TenantOps interface {
@@ -30,6 +30,18 @@ type TenantOps interface {
 	GetTenant(tenant string) (*entities.Tenant, error)
 	RemoveTenant(slug string) error
 	ListTenant() ([]*entities.Tenant, error)
+
+	AddDomain(domain *entities.TenantDomain) error
+	UpdateDomain(tenantId string, id int64, data map[string]interface{}) error
+	GetDomain(tenantId string, id int64) (*entities.TenantDomain, error)
+	RemoveDomain(tenantId string, id int64) error
+	ListDomain(tenantId string) ([]*entities.TenantDomain, error)
+
+	AddDomainWidget(domain *entities.DomainWidget) error
+	UpdateDomainWidget(tenantId string, id int64, data map[string]interface{}) error
+	GetDomainWidget(tenantId string, id int64) (*entities.DomainWidget, error)
+	RemoveDomainWidget(tenantId string, id int64) error
+	ListDomainWidget(tenantId string, did int64) ([]*entities.DomainWidget, error)
 }
 
 type UserOps interface {
@@ -105,10 +117,7 @@ type UserMessageOps interface {
 	DeleteUserMessages(tenantId, userId string, id []int64) error
 }
 
-type SyncDB interface {
-	BprintOps
-	PlugOps
-}
+// sync_db
 
 type BprintOps interface {
 	BprintNew(tenantId string, et *entities.BPrint) error

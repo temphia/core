@@ -82,12 +82,19 @@ func (s *Server) adminTenantAPI(adminApi *gin.RouterGroup) {
 	tenAPI := adminApi.Group("/tenant")
 	tenAPI.POST("/", r.Authed(s.routes.UpdateTenant))
 
-	tenAPI.GET("/domain", r.Authed(s.routes.ListTenantDomain))
-	tenAPI.POST("/domain", r.Authed(s.routes.NewTenantDomain))
-	tenAPI.GET("/domain/:id", r.Authed(s.routes.GetTenantDomain))
-	tenAPI.POST("/domain/:id", r.Authed(s.routes.UpdateTenantDomain))
-	tenAPI.DELETE("/domain/:id", r.Authed(s.routes.DeleteTenantDomain))
+	dapi := tenAPI.Group("/domain")
 
+	dapi.GET("/", r.Authed(s.routes.ListTenantDomain))
+	dapi.POST("/", r.Authed(s.routes.AddTenantDomain))
+	dapi.GET("/:id", r.Authed(s.routes.GetTenantDomain))
+	dapi.POST("/:id", r.Authed(s.routes.UpdateTenantDomain))
+	dapi.DELETE("/:id", r.Authed(s.routes.DeleteTenantDomain))
+
+	dapi.GET("/:did/widget/", r.Authed(s.routes.ListDomainWidget))
+	dapi.POST("/:did/widget/", r.Authed(s.routes.AddDomainWidget))
+	dapi.GET("/:did/widget/:wid", r.Authed(s.routes.GetDomainWidget))
+	dapi.POST("/:did/widget/:wid", r.Authed(s.routes.UpdateDomainWidget))
+	dapi.DELETE("/:did/widget/:wid", r.Authed(s.routes.DeleteTenantDomain))
 }
 
 func (s *Server) bprintAPI(adminApi *gin.RouterGroup) {

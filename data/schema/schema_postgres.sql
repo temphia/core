@@ -25,15 +25,8 @@ create table tenant_domains(
     smtp_user text not null default '',
     smtp_pass text not null default '',
     tenant_id text not null,
-    extra_meta json not null default '{}'
-);
-
-create table tenant_repos(
-    id serial primary key,
-    name text not null default '',
-    provider text not null default '',
     extra_meta json not null default '{}',
-    tenant_id text not null
+    unique(name, tenant_id)
 );
 
 create table domain_widgets(
@@ -43,7 +36,17 @@ create table domain_widgets(
     agent text not null default '',
     tenant_id text not null,
     exec_data json not null default '{}',
-    extra_meta json not null default '{}'
+    extra_meta json not null default '{}',
+    domain_id integer not null,
+    foreign KEY(domain_id) references tenant_domains(id)
+);
+
+create table tenant_repos(
+    id serial primary key,
+    name text not null default '',
+    provider text not null default '',
+    extra_meta json not null default '{}',
+    tenant_id text not null
 );
 
 create table user_groups(

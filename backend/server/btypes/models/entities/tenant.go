@@ -35,4 +35,5 @@ type DomainWidget struct {
 	ExecMeta  JsonMap    `json:"exec_meta,omitempty" db:"exec_meta,omitempty"`
 	ExtraMeta JsonStrMap `json:"extra_meta,omitempty" db:"extra_meta,omitempty"`
 	TenantId  string     `json:"tenant_id,omitempty" db:"tenant_id,omitempty"`
+	DomainId  int64      `json:"domain_id,omitempty" db:"domain_id,omitempty"`
 }
