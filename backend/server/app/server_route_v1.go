@@ -21,6 +21,7 @@ func (s *Server) buildRoutes(e *gin.Engine) {
 		apiv1 := e.Group("/api/:tenant_id/v1/", s.CORS)
 		s.adminTenantAPI(apiv1)
 		s.authAPI(apiv1)
+		s.authAPI2(apiv1)
 		s.bprintAPI(apiv1)
 		s.resourceAPI(apiv1)
 		s.userAPI(apiv1)
@@ -41,6 +42,20 @@ func (s *Server) authAPI(api *gin.RouterGroup) {
 	auth.POST("/signup", s.routes.SignUp)
 	auth.POST("/refresh", s.routes.RefreshServiceToken)
 	auth.POST("/refresh_from_pair_token", s.routes.RefreshFromPairToken)
+}
+
+func (s *Server) authAPI2(api *gin.RouterGroup) {
+	//auth := api.Group("/auth2")
+	/*
+
+		/oauth_callback
+		/load_methods
+		/method_submit -> PreLoggedClaim
+		/post_auth -> SessionClaim
+		/refresh
+
+	*/
+
 }
 
 func (s *Server) operatorAPI(op *gin.RouterGroup) {

@@ -34,11 +34,3 @@ func (c *Controller) LogInUser(tenantId, userOrEmail, password string, ctx *gin.
 func (c *Controller) RefreshService(uclaim *claim.User, opts *vmodels.RefreshReq) *vmodels.RefreshResp {
 	return c.refreshService(uclaim, opts)
 }
-
-/*
-	// poc
-
-	func (c *Controller) SignUpToken() {}
-	func (c *Controller) SignUpDirect() {}
-
-*/
