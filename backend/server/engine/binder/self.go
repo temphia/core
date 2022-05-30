@@ -5,6 +5,7 @@ import (
 	"html/template"
 
 	"github.com/temphia/core/backend/server/btypes/rtypes"
+	"github.com/temphia/core/backend/server/engine/binder/bprintfs"
 )
 
 func (b *Binder) SelfGetFile(file string) ([]byte, error) {
@@ -48,11 +49,9 @@ func (b *Binder) SelfRenderFile(file string, opts rtypes.RenderOption) ([]byte, 
 		return nil, err
 	}
 
-	adapter := SelfFs{
-		b: b,
-	}
+	adapter := bprintfs.New(b)
 
-	tpl, err := template.New("plug ").ParseFS(&adapter, file)
+	tpl, err := template.New("plug ").ParseFS(adapter, file)
 	if err != nil {
 		return nil, err
 	}
