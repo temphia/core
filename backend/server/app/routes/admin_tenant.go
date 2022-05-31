@@ -79,7 +79,7 @@ func (r *R) RemoveTenantDomain(ctx request.Ctx) {
 // widget
 
 func (r *R) AddDomainWidget(ctx request.Ctx) {
-	did, err := strconv.ParseInt(ctx.GinCtx.Param("did"), 10, 64)
+	did, err := strconv.ParseInt(ctx.GinCtx.Param("id"), 10, 64)
 	if err != nil {
 		r.WriteErr(ctx.GinCtx, err.Error())
 		return
@@ -137,7 +137,7 @@ func (r *R) RemoveDomainWidget(ctx request.Ctx) {
 }
 
 func (r *R) ListDomainWidget(ctx request.Ctx) {
-	did, err := strconv.ParseInt(ctx.GinCtx.Param("did"), 10, 64)
+	did, err := strconv.ParseInt(ctx.GinCtx.Param("id"), 10, 64)
 	if err != nil {
 		r.WriteErr(ctx.GinCtx, err.Error())
 		return

@@ -90,11 +90,11 @@ func (s *Server) adminTenantAPI(adminApi *gin.RouterGroup) {
 	dapi.POST("/:id", r.Authed(s.routes.UpdateTenantDomain))
 	dapi.DELETE("/:id", r.Authed(s.routes.RemoveTenantDomain))
 
-	dapi.GET("/:did/widget", r.Authed(s.routes.ListDomainWidget))
-	dapi.POST("/:did/widget", r.Authed(s.routes.AddDomainWidget))
-	dapi.GET("/:did/widget/:wid", r.Authed(s.routes.GetDomainWidget))
-	dapi.POST("/:did/widget/:wid", r.Authed(s.routes.UpdateDomainWidget))
-	dapi.DELETE("/:did/widget/:wid", r.Authed(s.routes.RemoveDomainWidget))
+	dapi.GET("/:id/widget", r.Authed(s.routes.ListDomainWidget))
+	dapi.POST("/:id/widget", r.Authed(s.routes.AddDomainWidget))
+	dapi.GET("/:id/widget/:wid", r.Authed(s.routes.GetDomainWidget))
+	dapi.POST("/:id/widget/:wid", r.Authed(s.routes.UpdateDomainWidget))
+	dapi.DELETE("/:id/widget/:wid", r.Authed(s.routes.RemoveDomainWidget))
 }
 
 func (s *Server) bprintAPI(adminApi *gin.RouterGroup) {
