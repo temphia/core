@@ -10,6 +10,7 @@ import {
     BprintAPI,
     ResourceAPI,
     EngineAPI,
+    TenantAPI,
 } from "./impl"
 
 
@@ -108,5 +109,12 @@ export class ApiBuilder {
         await eapi.init()
         return eapi
     }
+
+    async get_tenant_api(): Promise<TenantAPI> {
+        const tapi = new TenantAPI(this._api_base_url, this._user_token)
+        await tapi.init()
+        return tapi
+    }
+
 }
 

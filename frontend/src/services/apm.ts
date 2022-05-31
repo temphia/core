@@ -10,6 +10,7 @@ import type {
     BprintAPI,
     ResourceAPI,
     EngineAPI,
+    TenantAPI,
 } from "../lib/api"
 import { ApiBuilder, Options } from "../lib/api"
 import { sleep } from "yootils"
@@ -32,6 +33,8 @@ export class ApiManager {
     _engine_api: EngineAPI
     _resource_api: ResourceAPI
     _bprint_api: BprintAPI
+    _tenant_api: TenantAPI
+
 
     constructor(opts: Options) {
         this._api_builder = new ApiBuilder(opts)
@@ -117,4 +120,12 @@ export class ApiManager {
         }
         return this._engine_api
     }
+
+    async get_tenant_id(): Promise<TenantAPI> {
+        if (!this._tenant_api) {
+            this._tenant_api = await this._api_builder.get_tenant_api()
+        }
+        return this._tenant_api
+    }
+
 }

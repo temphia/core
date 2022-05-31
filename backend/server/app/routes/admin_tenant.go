@@ -65,7 +65,7 @@ func (r *R) UpdateTenantDomain(ctx request.Ctx) {
 	r.WriteFinal(ctx.GinCtx, err)
 }
 
-func (r *R) DeleteTenantDomain(ctx request.Ctx) {
+func (r *R) RemoveTenantDomain(ctx request.Ctx) {
 	id, err := strconv.ParseInt(ctx.GinCtx.Param("id"), 10, 64)
 	if err != nil {
 		r.WriteErr(ctx.GinCtx, err.Error())

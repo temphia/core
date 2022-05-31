@@ -50,6 +50,58 @@ export class BprintAPI extends ApiBase {
 }
 
 
+export class TenantAPI extends ApiBase {
+    constructor(url: string, user_token: string) {
+        super({
+            url: url,
+            user_token: user_token,
+            path: ["admin", "tenant"]
+        })
+    }
+    async update_tenant(data: any) {
+        return this.post("/tenant", data)
+    }
+
+    async list_tenant_domain() {
+        return this.get("/tenant/domain")
+    }
+
+    async add_tenant_domain(data: any) {
+        return this.post("/tenant/domain/", data) 
+    }
+
+    async get_tenant_domain(id: number) {
+        return this.get(`/tenant/domain/${id}`) 
+    }
+
+    async update_tenant_domain(id: number, data: any) {
+        return this.post( `/tenant/domain/${id}`, data) 
+    }
+
+    async remove_tenant_domain(id: number) {
+        return this.delete( `/tenant/domain/${id}`) 
+    }
+
+    // widget
+
+    async list_domain_widget(did: number) {
+        return this.get(`/tenant/domain/${did}/widget`)
+    }
+    async add_domain_widget(did: number, data: any) {
+        return this.get(`/tenant/domain/${did}/widget`, data)
+    }
+    async get_domain_widget(did: number,wid: number) {
+        return this.get(`/tenant/domain/${did}/widget${wid}`)
+    }
+    async update_domain_widget(did: number, wid: number, data: any) {
+        return this.get(`/tenant/domain/${did}/widget${wid}`, data)
+    }
+    async remove_domain_widget(did: number, wid: number) {
+        return this.delete(`/tenant/domain/${did}/widget${wid}`)
+    }
+}
+
+
 export class UserAPI extends ApiBase {
     constructor(url: string, user_token: string) {
         super({
