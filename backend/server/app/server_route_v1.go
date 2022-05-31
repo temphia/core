@@ -1,6 +1,9 @@
 package app
 
 import (
+	"net/http"
+	"strings"
+
 	"github.com/gin-gonic/gin"
 	"github.com/k0kubun/pp"
 )
@@ -10,29 +13,58 @@ func (s *Server) buildRoutes(e *gin.Engine) {
 	pp.Println("Building routes")
 
 	e.GET("/", s.routes.RootIndex)
-	e.GET("/temphia-start", s.routes.StartPage)
-	e.GET("/console", s.routes.AdminRoot2)
-	e.GET("/auth", s.routes.AuthIndex2)
-	s.operatorAPI(e.Group("/operator"))
 
-	e.NoRoute(s.routes.NoRoute)
+	z := e.Group("/z")
+	z.GET("/start", s.routes.StartIndex)
+	z.GET("/portal", s.routes.PortalIndex)
+	z.GET("/auth", s.routes.AuthIndex)
+	z.GET("/assets/:file", s.routes.ServeAssets)
+	z.GET("/public/:file", s.routes.ServePublic)
+	z.GET("/exec/:action", func(ctx *gin.Context) {})
 
-	{
-		apiv1 := e.Group("/api/:tenant_id/v1/", s.CORS)
-		s.adminTenantAPI(apiv1)
-		s.authAPI(apiv1)
-		s.authAPI2(apiv1)
-		s.bprintAPI(apiv1)
-		s.resourceAPI(apiv1)
-		s.userAPI(apiv1)
-		s.userSelfAPI(apiv1)
-		s.plugAPI(apiv1)
-		s.repoAPI(apiv1)
-		s.cabinetAPI(apiv1)
-		s.dtableAPI(apiv1)
-		s.engineAPI(apiv1)
+	apiv1 := z.Group("/api/:tenant_id/v1/", s.CORS)
+	ops := z.Group("/operator")
 
-	}
+	s.operatorAPI(ops)
+	s.API(apiv1)
+	e.NoRoute(func(ctx *gin.Context) {
+		if strings.HasPrefix(ctx.Request.URL.Path, "/z/") {
+			pparts := strings.Split(ctx.Request.URL.Path, "/")
+
+			switch pparts[2] {
+			case "portal":
+				ctx.Redirect(http.StatusFound, "/z/portal")
+				return
+			case "auth":
+				ctx.Redirect(http.StatusFound, "/z/auth")
+				return
+			case "operator":
+				ctx.Redirect(http.StatusFound, "/z/operator")
+				return
+			default:
+				pp.Println(pparts)
+				return
+			}
+		}
+
+		s.routes.NoRoute(ctx)
+	})
+
+}
+
+func (s *Server) API(apiv1 *gin.RouterGroup) {
+	s.adminTenantAPI(apiv1)
+	s.authAPI(apiv1)
+	s.authAPI2(apiv1)
+	s.bprintAPI(apiv1)
+	s.resourceAPI(apiv1)
+	s.userAPI(apiv1)
+	s.userSelfAPI(apiv1)
+	s.plugAPI(apiv1)
+	s.repoAPI(apiv1)
+	s.cabinetAPI(apiv1)
+	s.dtableAPI(apiv1)
+	s.engineAPI(apiv1)
 
 }
 
@@ -45,16 +77,19 @@ func (s *Server) authAPI(api *gin.RouterGroup) {
 }
 
 func (s *Server) authAPI2(api *gin.RouterGroup) {
-	//auth := api.Group("/auth2")
-	/*
+	auth := api.Group("/authed")
 
-		/oauth_callback
-		/load_methods
-		/method_submit -> PreLoggedClaim
-		/post_auth -> SessionClaim
-		/refresh
+	auth.GET("/method", func(ctx *gin.Context) {})
+	auth.POST("/method/:id/next", func(ctx *gin.Context) {})
+	auth.POST("/method/:id/submit", func(ctx *gin.Context) {})
+	auth.POST("/method/:id/reset", func(ctx *gin.Context) {})
+	auth.POST("/method/:id/finish", func(ctx *gin.Context) {})
 
-	*/
+	auth.POST("/method/:id/oauth/callback", func(ctx *gin.Context) {})
+	auth.POST("/method/:id/oauth/external", func(ctx *gin.Context) {})
+
+	auth.POST("/refresh/service/:id", func(ctx *gin.Context) {})
+	auth.GET("/refresh/engine", func(ctx *gin.Context) {})
 
 }
 

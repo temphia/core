@@ -77,7 +77,7 @@ func refererToken(ctx *gin.Context) string {
 }
 
 func baseURL(ctx *gin.Context) string {
-	return fmt.Sprintf("http://%s/api/%s/v1/", ctx.Request.Host, ctx.Param("tenant_id"))
+	return fmt.Sprintf("http://%s/z/api/%s/v1/", ctx.Request.Host, ctx.Param("tenant_id"))
 }
 
 func buildSubOriginTemplate(renderOpts *vmodels.SubOriginData) ([]byte, error) {

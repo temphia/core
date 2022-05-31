@@ -7,10 +7,10 @@
     "/dist"
   ],
   "scripts": {
-    "build_admin": "ENTRY_FILE=console_admin rollup --config config/rollup.config.js",
-    "build_auth": "ENTRY_FILE=page_auth rollup --config config/rollup.config.js",
-    "build_operator": "ENTRY_FILE=console_operator rollup --config config/rollup.config.js",
-    "build_root": "ENTRY_FILE=page_root rollup --config config/rollup.config.js",
+    "build:portal": "ENTRY_FILE=portal rollup -c",
+    "build:auth": "ENTRY_FILE=page_auth rollup -c",
+    "build:operator": "ENTRY_FILE=operator rollup -c",
+    "build:root": "ENTRY_FILE=page_root rollup -c",
     "build": "rollup -c",
     "build_ui_sdk_package": "tsc -p tsconfig.package.json ",
     "dev": "rollup -c -w",

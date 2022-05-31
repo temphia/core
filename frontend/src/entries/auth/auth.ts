@@ -32,7 +32,7 @@ export let doLogin = async (user, pass) => {
     })
 
     if (!resp.redirrect_to) {
-        window.location.href = `${window.location.origin}/console`;
+        window.location.href = `${window.location.origin}/z/portal`;
         return ""
     }
 

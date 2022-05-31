@@ -91,6 +91,7 @@ export class AppService {
     }
 
     async build_api_manager(claim: string) {
+        
         this.apm = new ApiManager({
             api_base_url: this.api_url,
             tenant_id: this.tenant_id,

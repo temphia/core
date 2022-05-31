@@ -1,0 +1,7 @@
+{
+    "api_url": "http://localhost:4000/z/api/default1/v1",
+    "base_url": "http://localhost:4000/z",
+    "site_token": "dlsbFwQVrF1s1fjaULVR8auJcbBH5uMMk1hoyUYOpVv5JgwHgDoyMCgvx6c2Ht8hy7cfi0cwLdRoOMdDv6MIFBcO8k5AKRSVWwyuKdazZhF5HJFVlbOF9SZn9SeqQCyMB6t3fV5WiWVttE6RzPzwmVTGL7t9gu8xz0tw0w5musQOkAXkO8m6MVn7xCv4j9AnWFyespXJxRsu49TU3Zqbhpfjk18H5sDvRWw3sqa95fmg4T0g1kStc8kzRDQXKaUZOp",
+    "tenant_id": "default1",
+    "user_claim": "Aw4ZOvzN6Mrva3ATiLE6v4S1Ux5xw5m55oy2X40sDwKHHiHTb0o1EZ4lup7Czsn1QnUcsTcT3Qkpu0dONFoDj4LyG46OyJuVeOCDKmX462JFUJetnKurz3o6GKJ0lgRMdKsTSlAXHMfrHrktwZOvrXCQFEnWGAaoiRxwTgL5kvtnWqoPJl9ixG6l0jGxmWSBl4BLmBTG593V5tlEUFE2j0TIIzRwXuECmGyksnPrSIUlZk79IJpuWeZyKlMCLtpgw7TqM"
+  }

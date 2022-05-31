@@ -15,8 +15,8 @@ func (r *R) OperatorIndex(c *gin.Context) {
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<title>Operator Console</title>
 		<link rel="icon" type="image/png" href="/favicon.png" />
-		<link rel="stylesheet" href="/assets/console_operator.css" />
-		<script defer src="/assets/console_operator.js"></script>
+		<link rel="stylesheet" href="/z/assets/operator.css" />
+		<script defer src="/z/assets/operator.js"></script>
 	</head>
 	
 	<body>

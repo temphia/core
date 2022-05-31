@@ -14,7 +14,7 @@ export const doLogin = async (op_username: string, op_password: string) => {
     }
     const data = await resp.json();
     saveOperatorData(data);
-    window.location.href = `${window.location.origin}/operator`;
+    window.location.href = `${window.location.origin}/z/operator`;
 }
 
 

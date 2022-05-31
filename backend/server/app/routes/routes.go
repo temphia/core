@@ -2,7 +2,6 @@ package routes
 
 import (
 	"net/http"
-	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/temphia/core/backend/server/app/config"
@@ -65,25 +64,18 @@ func (r *R) RootIndex(ctx *gin.Context) {
 	r.sitemanager.ServeIndex(ctx)
 }
 
-func (r *R) StartPage(ctx *gin.Context) {
+func (r *R) StartIndex(ctx *gin.Context) {
 	hoster.DefaultIndex(ctx)
 }
 
-const assetPrefix = "/assets/"
-
 func (r *R) NoRoute(c *gin.Context) {
-	curPath := c.Request.URL.Path
+	r.sitemanager.ServeAny(c.Request.URL.Path, c)
+}
 
-	if strings.Contains(curPath, assetPrefix) {
-		curPath = curPath[len(assetPrefix):]
-		c.FileFromFS(curPath, r.assetFS)
-		return
-	}
+func (r *R) ServeAssets(c *gin.Context) {
+	c.FileFromFS(c.Param("file"), r.assetFS)
+}
 
-	if strings.HasPrefix(curPath, "/console") {
-		// fixme => server console root file
-		c.Redirect(http.StatusFound, "/console")
-	}
+func (r *R) ServePublic(c *gin.Context) {
 
-	r.sitemanager.ServeAny(curPath, c)
 }

@@ -136,7 +136,7 @@
 
       <div class="flex flex-col mt-8">
         <Link title="easybot" url="" />
-        <Link title="playground" url="/console/playground" />
+        <Link title="playground" url="/z/portal/playground" />
       </div>
     </div>
   </main>

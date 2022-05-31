@@ -16,138 +16,138 @@ export class Navigator {
     }
 
     goto_dtable_source = (source: string) => {
-        this.goto(`/console/dtable/${source}`)
+        this.goto(`/z/portal/dtable/${source}`)
     }
 
     goto_dtable_group = (source: string, group: string) => {
-        this.goto(`/console/dtable/${source}/${group}`)
+        this.goto(`/z/portal/dtable/${source}/${group}`)
     }
 
     goto_dtable = (source: string, group: string, table: string, opts?: any) => {
-        this.goto(`/console/dtable/${source}/${group}/${table}`, opts)
+        this.goto(`/z/portal/dtable/${source}/${group}/${table}`, opts)
     }
 
     goto_repo_store = () => {
-        this.goto(`/console/store`)
+        this.goto(`/z/portal/store`)
     }
 
     goto_repo_item = (repo: string, group: string, item: string) => {
-        this.goto(`/console/store/${repo}/${group}/${item}`)
+        this.goto(`/z/portal/store/${repo}/${group}/${item}`)
     }
     goto_cabinet_source = (src: string) => {
-        this.goto(`/console/cabinet/${src}`)
+        this.goto(`/z/portal/cabinet/${src}`)
     }
 
     goto_cabinet_folder = (src: string, folder: string) => {
-        this.goto(`/console/cabinet/${src}/${folder}`)
+        this.goto(`/z/portal/cabinet/${src}/${folder}`)
     }
 
     goto_cabinet_file = (src: string, folder: string, file: string) => {
-        this.goto(`/console/cabinet/${src}/${folder}/${file}`)
+        this.goto(`/z/portal/cabinet/${src}/${folder}/${file}`)
     }
 
     // admin pages
     goto_admin_bprints_page = () => {
-        this.goto(`/console/admin/bprints`)
+        this.goto(`/z/portal/admin/bprints`)
     }
 
     goto_admin_bprint_page = (bid: string) => {
-        this.goto(`/console/admin/bprints/${bid}`)
+        this.goto(`/z/portal/admin/bprints/${bid}`)
     }
 
     goto_admin_plugs_page = () => {
-        this.goto("/console/admin/plugs")
+        this.goto("/z/portal/admin/plugs")
     }
 
     goto_admin_plug_page = (id: string) => {
-        this.goto(`/console/admin/plugs/${id}`)
+        this.goto(`/z/portal/admin/plugs/${id}`)
     }
 
     goto_admin_agents_page = (pid: string) => {
-        this.goto(`/console/admin/plugs/${pid}/agents`)
+        this.goto(`/z/portal/admin/plugs/${pid}/agents`)
     }
     goto_admin_agent_page = (pid: string, aid: string) => {
-        this.goto(`/console/admin/plugs/${pid}/agents/${aid}`)
+        this.goto(`/z/portal/admin/plugs/${pid}/agents/${aid}`)
     }
 
     goto_admin_agent_resources_page = (pid: string, aid: string) => {
-        this.goto(`/console/admin/plugs/${pid}/agents/${aid}/resources`)
+        this.goto(`/z/portal/admin/plugs/${pid}/agents/${aid}/resources`)
     }
 
     goto_admin_resources_page = () => {
-        this.goto("/console/admin/resources")
+        this.goto("/z/portal/admin/resources")
     }
 
     goto_admin_resource_new = (plug?: string) => {
-        this.goto(`/console/admin/resources/new`)
+        this.goto(`/z/portal/admin/resources/new`)
     }
 
     goto_admin_resource_edit = (id: string) => {
-        this.goto(`/console/admin/resources/edit/${id}`)
+        this.goto(`/z/portal/admin/resources/edit/${id}`)
     }
 
     // users
 
     goto_admin_users_page = () => {
-        this.goto("/console/admin/users")
+        this.goto("/z/portal/admin/users")
     }
 
     goto_admin_new_user_page = () => {
-        this.goto("/console/admin/new_user")
+        this.goto("/z/portal/admin/new_user")
     }
 
     goto_admin_user_page = (id: string) => {
-        this.goto(`/console/admin/users/${id}`)
+        this.goto(`/z/portal/admin/users/${id}`)
     }
     goto_admin_usergroups_page = () => {
-        this.goto("/console/admin/user_groups")
+        this.goto("/z/portal/admin/user_groups")
     }
     goto_admin_usergroup_page = (id: string) => {
-        this.goto(`/console/admin/user_groups/${id}`)
+        this.goto(`/z/portal/admin/user_groups/${id}`)
     }
 
     goto_admin_new_usergroup_page = () => {
-        this.goto(`/console/admin/new_user_groups`)
+        this.goto(`/z/portal/admin/new_user_groups`)
     }
 
     goto_admin_user_by_group = (id: string) => {
-        this.goto(`/console/admin/users_by_group/${id}`)
+        this.goto(`/z/portal/admin/users_by_group/${id}`)
     }
 
     // user group auth
 
     goto_admin_user_auth_new = (gid: string) => {
-        this.goto(`/console/admin/user_group_auth/${gid}/new`)
+        this.goto(`/z/portal/admin/user_group_auth/${gid}/new`)
     }
 
     goto_admin_user_auth_edit = (gid: string, id: string) => {
-        this.goto(`/console/admin/user_group_auth/${gid}/edit/${id}`)
+        this.goto(`/z/portal/admin/user_group_auth/${gid}/edit/${id}`)
     }
 
     // user group qapp
 
     goto_admin_user_hook_new = (gid: string) => {
-        this.goto(`/console/admin/user_group_hook/${gid}/new`)
+        this.goto(`/z/portal/admin/user_group_hook/${gid}/new`)
     }
 
     goto_admin_user_hook_edit = (gid: string, id: string) => {
-        this.goto(`/console/admin/user_group_hook/${gid}/edit/${id}`)
+        this.goto(`/z/portal/admin/user_group_hook/${gid}/edit/${id}`)
     }
 
     goto_admin_user_plug_new = (gid: string) => {
-        this.goto(`/console/admin/user_group_plug/${gid}/new`)
+        this.goto(`/z/portal/admin/user_group_plug/${gid}/new`)
     }
 
     goto_admin_user_plug_edit = (gid: string, id: string) => {
-        this.goto(`/console/admin/user_group_plug/${gid}/edit/${id}`)
+        this.goto(`/z/portal/admin/user_group_plug/${gid}/edit/${id}`)
     }
 
     goto_admin_user_data_new = (gid: string) => {
-        this.goto(`/console/admin/user_group_data/${gid}/new`)
+        this.goto(`/z/portal/admin/user_group_data/${gid}/new`)
     }
 
     goto_admin_user_data_edit = (gid: string, id: string) => {
-        this.goto(`/console/admin/user_group_data/${gid}/edit/${id}`)
+        this.goto(`/z/portal/admin/user_group_data/${gid}/edit/${id}`)
     }
 
 
@@ -155,58 +155,58 @@ export class Navigator {
 
     goto_admin_dtable_builder = (bid?: string) => {
         if (bid) {
-            this.goto(`/console/admin/builder/builder/${bid}`)
+            this.goto(`/z/portal/admin/builder/builder/${bid}`)
             return
         }
-        this.goto(`/console/admin/builder/builder`)
+        this.goto(`/z/portal/admin/builder/builder`)
     }
 
     goto_admin_dsource_page = () => {
-        this.goto("/console/admin/dtable")
+        this.goto("/z/portal/admin/dtable")
     }
 
     goto_admin_dgroup_page = (source: string, group: string) => {
-        this.goto(`/console/admin/dtable/${source}/${group}`)
+        this.goto(`/z/portal/admin/dtable/${source}/${group}`)
     }
 
     goto_admin_dtable_page = (source: string, group: string, table: string) => {
-        this.goto(`/console/admin/dtable/${source}/${group}/${table}`)
+        this.goto(`/z/portal/admin/dtable/${source}/${group}/${table}`)
     }
 
     goto_dgroup_edit = (source: string, group: string) => {
-        this.goto(`/console/admin/dtable_edit/${source}/${group}`)
+        this.goto(`/z/portal/admin/dtable_edit/${source}/${group}`)
     }
 
     goto_dtable_edit = (source: string, group: string, table: string) => {
-        this.goto(`/console/admin/dtable_edit/${source}/${group}/${table}`)
+        this.goto(`/z/portal/admin/dtable_edit/${source}/${group}/${table}`)
     }
 
     goto_column_edit = (source: string, group: string, table: string, column: string) => {
-        this.goto(`/console/admin/dtable_edit/${source}/${group}/${table}/${column}`)
+        this.goto(`/z/portal/admin/dtable_edit/${source}/${group}/${table}/${column}`)
     }
 
     goto_views = (source: string, group: string, table: string) => {
-        this.goto(`/console/admin/table_views/${source}/${group}/${table}`)
+        this.goto(`/z/portal/admin/table_views/${source}/${group}/${table}`)
     }
 
     goto_add_view = (source: string, group: string, table: string) => {
-        this.goto(`/console/admin/table_views/${source}/${group}/${table}/new`)
+        this.goto(`/z/portal/admin/table_views/${source}/${group}/${table}/new`)
     }
 
     goto_edit_view = (source: string, group: string, table: string, id: string) => {
-        this.goto(`/console/admin/table_views/${source}/${group}/${table}/edit/${id}`)
+        this.goto(`/z/portal/admin/table_views/${source}/${group}/${table}/edit/${id}`)
     }
 
     goto_hooks = (source: string, group: string, table: string) => {
-        this.goto(`/console/admin/table_hooks/${source}/${group}/${table}`)
+        this.goto(`/z/portal/admin/table_hooks/${source}/${group}/${table}`)
     }
 
     goto_add_hook = (source: string, group: string, table: string) => {
-        this.goto(`/console/admin/table_hooks/${source}/${group}/${table}/new`)
+        this.goto(`/z/portal/admin/table_hooks/${source}/${group}/${table}/new`)
     }
 
     goto_edit_hook = (source: string, group: string, table: string, id: string) => {
-        this.goto(`/console/admin/table_hooks/${source}/${group}/${table}/edit/${id}`)
+        this.goto(`/z/portal/admin/table_hooks/${source}/${group}/${table}/edit/${id}`)
     }
 
     extern_plug_launch = (plug: string, agent: string) => {
@@ -215,26 +215,26 @@ export class Navigator {
     }
 
     iframe_plug_launch = (plug: string, agent: string) => {
-        this.goto(`/console/launcher/${plug}/${agent}`)
+        this.goto(`/z/portal/launcher/${plug}/${agent}`)
     }
 
     launcher_apps = () => {
-        this.goto("/console/apps_launcher")
+        this.goto("/z/portal/apps_launcher")
     }
 
     goto_self_profile = () => {
-        this.goto(`/console/self_profile`)
+        this.goto(`/z/portal/self_profile`)
     }
 
     goto_user_profile = (user) => {
-        this.goto(`/console/user_profile/${user}`)
+        this.goto(`/z/portal/user_profile/${user}`)
     }
 
     goto_org_profile = () => {
-        this.goto("/console/about_ns")
+        this.goto("/z/portal/about_ns")
     }
 
     goto_admin_org_edit = () => {
-        this.goto("/console/admin/ns_edit")
+        this.goto("/z/portal/admin/ns_edit")
     }
 }

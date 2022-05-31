@@ -15,9 +15,13 @@ backend_server_run:
 ############# FRONTEND ############################
 frontend_run:
 	cd frontend && npm run dev
-frontend_admin_build:
+frontend_portal_build:
 	cd frontend/src/lib/launcher && go run buildentry.go
-	cd frontend && npm run build_admin
+	cd frontend && npm run build:portal
+frontend_auth_build:
+	cd frontend && npm run build:auth
+frontend_operator_build:
+	cd frontend && npm run build:operator
 frontend_gen_launcher_template:
 	cd frontend/src/lib/launcher && go run buildentry.go
 

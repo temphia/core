@@ -17,7 +17,7 @@ import (
 	"github.com/ztrue/tracerr"
 )
 
-func (r *R) AuthIndex2(ctx *gin.Context) {
+func (r *R) AuthIndex(ctx *gin.Context) {
 	var buf bytes.Buffer
 
 	tenantId := extractTenant(ctx)
@@ -34,7 +34,7 @@ func (r *R) AuthIndex2(ctx *gin.Context) {
 
 	data := &vmodels.SiteData{
 		SiteToken: stoken,
-		ApiURL:    fmt.Sprintf("http://%s/api/%s/v1", ctx.Request.Host, tenantId),
+		ApiURL:    fmt.Sprintf("http://%s/z/api/%s/v1", ctx.Request.Host, tenantId),
 		TenantId:  tenantId,
 	}
 
@@ -52,14 +52,14 @@ func (r *R) AuthIndex2(ctx *gin.Context) {
 			<head>
 			<meta charset="utf-8" />
 			<meta name="viewport" content="width=device-width,initial-scale=1" />
-			<title>Admin Console</title>
+			<title>Authed</title>
 			<script>
 			window.__temphia_site_data__ = `))
 	buf.Write(tdata)
 	buf.Write([]byte(`</script>
 		<link rel="icon" type="image/png" href="/favicon.png" />
-		<link rel="stylesheet"  type="text/css" href="/assets/page_auth.css" />
-		<script defer src="/assets/page_auth.js"></script>
+		<link rel="stylesheet"  type="text/css" href="/z/assets/page_auth.css" />
+		<script defer src="/z/assets/page_auth.js"></script>
 		</head>
 		<body></body>
 		</html>`))

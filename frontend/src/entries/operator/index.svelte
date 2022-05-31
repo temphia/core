@@ -14,7 +14,8 @@
   import { goto, loadOperatorData } from "./operator";
   import Querytool from "./pages/querytool.svelte";
 
-  let url = "/operator";
+
+  let url = "/z/operator";
 
   loadOperatorData();
 </script>
@@ -36,7 +37,7 @@
     </div>
     <div class="overflow-y-auto overflow-x-hidden flex-grow">
       <ul class="flex flex-col py-6 space-y-1">
-        <li on:click={goto("/operator")}>
+        <li on:click={goto("/z/operator")}>
           <a
             href="#"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6"
@@ -62,7 +63,7 @@
             >
           </a>
         </li>
-        <li on:click={goto("/operator/tenants")}>
+        <li on:click={goto("/z/operator/tenants")}>
           <a
             href="#"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6"
@@ -89,7 +90,7 @@
           </a>
         </li>
 
-        <li on:click={goto("/operator/magicdial")}>
+        <li on:click={goto("/z/operator/magicdial")}>
           <a
             href="#"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6"
@@ -113,7 +114,7 @@
           </a>
         </li>
 
-        <li on:click={goto("/operator/querytool")}>
+        <li on:click={goto("/z/operator/querytool")}>
           <a
             href="#"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-700 text-gray-500 hover:text-gray-200 border-l-4 border-transparent hover:border-blue-500 pr-6"
@@ -177,21 +178,21 @@
     <Router {url}>
       <BigModal />
       <Modal>
-        <Route path="/operator" component={Start} />
-        <Route path="/operator/tenants" component={Tenants} />
+        <Route path="/z/operator" component={Start} />
+        <Route path="/z/operator/tenants" component={Tenants} />
 
-        <Route path="/operator/tenants/:id" let:params>
+        <Route path="/z/operator/tenants/:id" let:params>
           <Tenant id={params.id} />
         </Route>
-        <Route path="/operator/tenant_new">
+        <Route path="/z/operator/tenant_new">
           <NewTenant />
         </Route>
 
-        <Route path="/operator/magicdial" let:params>
+        <Route path="/z/operator/magicdial" let:params>
           <Magicdial />
         </Route>
 
-        <Route path="/operator/querytool" let:params>
+        <Route path="/z/operator/querytool" let:params>
           <Querytool />
         </Route>
       </Modal>

@@ -16,12 +16,12 @@
   import Logo from "../../../svgs/logo.svelte";
 
   const route_links = [
-    [HomeIcon, "start", "/console"],
-    [GroupIcon, "data tables", "/console/dtable_load"],
-    [PlugIcon, "plug apps", "/console/apps_launcher"],
-    [AdminIcon, "admin", "/console/admin/plugs"],
-    [FolderIcon, "cabinet", "/console/cabinet_load"],
-    [StoreIcon, "store", "/console/store"],
+    [HomeIcon, "start", "/z/portal"],
+    [GroupIcon, "data tables", "/z/portal/dtable_load"],
+    [PlugIcon, "plug apps", "/z/portal/apps_launcher"],
+    [AdminIcon, "admin", "/z/portal/admin/plugs"],
+    [FolderIcon, "cabinet", "/z/portal/cabinet_load"],
+    [StoreIcon, "store", "/z/portal/store"],
   ];
 
   export let app: AppService;

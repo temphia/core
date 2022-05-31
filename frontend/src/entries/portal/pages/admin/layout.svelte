@@ -21,38 +21,38 @@
       id: "bprints",
       name: "Bluprints",
       icon: BluprintIcon,
-      path: "console/admin/bprints",
+      path: "z/portal/admin/bprints",
     },
     {
       id: "plugs",
       name: "Plugs",
       icon: PlugIcon,
-      path: "console/admin/plugs",
+      path: "z/portal/admin/plugs",
     },
     {
       id: "resources",
       name: "Resources",
       icon: ResourceIcon,
-      path: "console/admin/resources",
+      path: "z/portal/admin/resources",
     },
 
     {
       id: "user_groups",
       name: "Users and Groups",
       icon: UserGroupIcon,
-      path: "console/admin/user_groups",
+      path: "z/portal/admin/user_groups",
     },
     {
       id: "ns",
       name: "Organization",
       icon: OrgIcon,
-      path: "console/admin/ns",
+      path: "z/portal/admin/ns",
     },
     {
       id: "dtable",
       name: "Tables",
       icon: GroupIcon,
-      path: "console/admin/dtable",
+      path: "z/portal/admin/dtable",
     },
   ];
 
@@ -61,7 +61,7 @@
 
   $: _current_page = current_item
     ? current_item
-    : location.pathname.split("/")[3];
+    : location.pathname.split("/")[4];
 </script>
 
 <div class="w-full h-full bg-indigo-100 overflow-auto">
