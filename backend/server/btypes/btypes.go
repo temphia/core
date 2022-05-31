@@ -58,6 +58,8 @@ type App interface {
 	Server() Server
 	RootController() interface{}
 	RootLogger() *zerolog.Logger
+	SingleTenant() bool
+	TenantId() string
 }
 
 var DevMode = true

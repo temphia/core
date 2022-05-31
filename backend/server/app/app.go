@@ -9,9 +9,9 @@ import (
 )
 
 type App struct {
-	nodeId  string
-	devmode bool
-
+	nodeId         string
+	tenantId       string
+	devmode        bool
 	registry       interface{}
 	controlPlane   service.ControlPlane
 	fencer         service.Fencer
@@ -60,3 +60,5 @@ func (a *App) Server() btypes.Server       { return a.server }
 func (a *App) RootController() interface{} { return a.rootController }
 func (a *App) RootLogger() *zerolog.Logger { return a.rootLogger }
 func (a *App) Registry() interface{}       { return a.registry }
+func (a *App) SingleTenant() bool          { return false }
+func (a *App) TenantId() string            { return a.tenantId }
