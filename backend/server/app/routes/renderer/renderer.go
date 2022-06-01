@@ -26,3 +26,7 @@ func New(engine rtypes.Engine, pacman service.Pacman) *Renderer {
 func (r *Renderer) Render(domain string) ([]byte, error) {
 	return r.render(domain)
 }
+
+type IRenderer interface {
+	Render(file string, opts map[string]interface{}) ([]byte, error)
+}
