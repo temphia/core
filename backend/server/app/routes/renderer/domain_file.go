@@ -8,13 +8,14 @@ import (
 
 type File struct {
 	parent    *DomainRenderer
+	bprintId  string
 	name      string
 	dataCache []byte
 	offset    int64
 }
 
 func (s *File) fileLoader(name string) ([]byte, error) {
-	return nil, nil
+	return s.parent.pacman.BprintGetBlob(s.parent.TenantId, s.bprintId, name)
 }
 
 func (s *File) Stat() (fs.FileInfo, error) { return s, nil }
@@ -49,6 +50,7 @@ func (s *File) Close() error {
 func (s *File) fillData() error {
 	data, err := s.fileLoader(s.name)
 	if err != nil {
+		// fs.FS needs certain err when not found
 		return err
 	}
 	s.dataCache = data

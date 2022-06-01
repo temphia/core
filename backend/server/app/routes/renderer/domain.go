@@ -22,13 +22,15 @@ type DomainRenderer struct {
 	OverrideThemeBprint string
 	RootBprint          string
 	RootPrefix          string
+	TenantId            string
 
 	// wizards             map[string]int64
 }
 
 func (d *DomainRenderer) Open(name string) (fs.File, error) {
 	return &File{
-		name:   name,
-		parent: d,
+		name:     name,
+		parent:   d,
+		bprintId: d.RootBprint,
 	}, nil
 }
