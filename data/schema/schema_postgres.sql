@@ -4,8 +4,11 @@ create table tenants(
     slug text not null,
     name text not null default '',
     org_bio text not null default '',
-    root_plug text not null default '',
-    root_agent text not null default '',
+    
+    root_plug_id text not null default '',
+    root_agent_id text not null default '',
+    root_handler text not null default '',
+
     smtp_user text not null default '',
     smtp_pass text not null default '',
     master_secret text not null default '',
@@ -18,10 +21,15 @@ create table tenant_domains(
     id serial primary key,
     name text not null default '',
     about text not null default '',
-    cab_source text not null default '',
-    folder text not null default '',
-    tsp_plug text not null,
-    tsp_agent text not null,
+
+    serve_source text not null default '',
+    serve_folder text not null default '',
+
+    plug_id text not null default '',
+    agent_id text not null default '',
+    init_handler text not null default '',
+    render_handler text not null default '',
+
     smtp_user text not null default '',
     smtp_pass text not null default '',
     tenant_id text not null,
@@ -139,6 +147,8 @@ create table user_group_hooks(
     client_side boolean not null default FALSE,
     plug_id text not null,
     agent_id text not null,
+    handler text not null default '',
+
     user_group text not null,
     tenant_id text not null,
     extra_meta json default '{}',
@@ -278,6 +288,7 @@ create table data_hooks (
     icon text not null default '',
     plug_id text not null default '',
     agent_id text not null default '',
+    handler text not null default '',
     payload text not null default '',
     extra_meta json not null default '{}',
     table_id TEXT not null,

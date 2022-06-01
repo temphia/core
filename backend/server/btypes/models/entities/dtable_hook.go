@@ -7,6 +7,7 @@ type DataHook struct {
 	SubType   string     `json:"sub_type,omitempty" db:"sub_type,omitempty"`
 	PlugId    string     `json:"plug_id,omitempty" db:"plug_id,omitempty"`
 	AgentId   string     `json:"agent_id,omitempty" db:"agent_id,omitempty"`
+	Handler   string     `json:"handler,omitempty" db:"handler,omitempty"`
 	Payload   string     `json:"payload,omitempty" db:"payload,omitempty"`
 	TableID   string     `json:"table_id,omitempty" db:"table_id"`
 	GroupID   string     `json:"group_id,omitempty" db:"group_id"`
