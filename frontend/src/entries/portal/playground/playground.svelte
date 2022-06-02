@@ -1,7 +1,7 @@
 <script>
   import { getContext } from "svelte";
   import PlugPick from "../pages/admin/core/plug_pick.svelte";
-  import Board from "./board.svelte";
+  import Board from "./board/board.svelte";
   import Builder from "./builder.svelte";
 
   const { open, close } = getContext("simple-modal");
@@ -15,4 +15,7 @@
   }}>Pickup</button
 >
 
-<Builder />
+
+<Board />
+
+<!-- <Builder /> -->

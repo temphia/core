@@ -62,7 +62,7 @@
     <div class="p-8 flex flex-wrap justify-center gap-4">
         {#each plugs as plug}
             <div
-                class="bg-white flex flex-col items-center h-32 w-32 p-2 overflow-hidden shadow-lg rounded-lg cursor-pointer"
+                class="bg-white flex flex-col items-center h-32 w-32 p-2 overflow-hidden shadow-lg rounded-lg cursor-pointer hover:border-2 border-blue-400"
             >
                 {#if plug.icon === ""}
                     <svg

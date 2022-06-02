@@ -37,13 +37,12 @@
   }
 </script>
 
-<div class="w-full h-full relative bg-blue-100">
+<div class="absolute border bg-white shadow rounded" bind:this={elmnt}>
   <div
-    class="absolute flex flex-col p-2 border bg-white shadow rounded"
-    bind:this={elmnt}
+    class="h-2 cursor-pointer w-full bg-yellow-100 hover:bg-yellow-300"
     on:mousedown={dragMouseDown}
-  >
-    <div class="bg-blue-200 p-2">Header</div>
-    <div class="bg-gray-100 p-2">This is content</div>
+  />
+  <div class="p-2">
+    <slot />
   </div>
 </div>
