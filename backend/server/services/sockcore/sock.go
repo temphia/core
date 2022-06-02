@@ -68,6 +68,9 @@ func (s *SockCore) NewConnection(opts *service.ConnOptions) error {
 		// fixme => actually publish to "sockd state store thing"
 	}
 
+	pp.Println("PRE_CONNECT_ROOMS", opts)
+	pp.Println(s.rooms)
+
 	return nil
 }
 
@@ -105,6 +108,8 @@ func (s *SockCore) SendBroadcast(ns, room string, ignoreConns []string, payload 
 }
 
 func (s *SockCore) SendTagged(ns, room string, tags []string, ignoreConns []string, payload []byte) error {
+	pp.Println(room, tags, ignoreConns)
+
 	msg := &message{
 		Room:        room,
 		Type:        MESSAGE_SERVER_PUBLISH,
@@ -123,6 +128,9 @@ func (s *SockCore) SendTagged(ns, room string, tags []string, ignoreConns []stri
 
 	room5 := s.getRoom(ns, room, false)
 	if room5 == nil {
+
+		pp.Println(s.rooms)
+
 		return easyerr.NotFound()
 	}
 

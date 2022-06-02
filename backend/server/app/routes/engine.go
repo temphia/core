@@ -6,10 +6,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/k0kubun/pp"
 	"github.com/rs/xid"
-	"github.com/temphia/core/backend/server/btypes"
-	"github.com/temphia/core/backend/server/btypes/service"
 	"github.com/temphia/core/backend/server/lib/apiutils"
 	"github.com/temphia/core/backend/server/services/sockcore/transports"
+	"github.com/temphia/core/backend/server/services/sockdhub"
 )
 
 func (r *R) EngineExecConsole(ctx *gin.Context) {
@@ -82,18 +81,15 @@ func (r *R) PlugSocket(c *gin.Context) {
 		return
 	}
 
-	connTags := []string{
-		fmt.Sprintf("plug_%s", plug),
-	}
-
-	err = r.sockd.NewConnection(&service.ConnOptions{
-		NameSpace: tenant,
-		Conn:      conn,
-		Expiry:    10000,
-		PreJoinRooms: map[string][]string{
-			btypes.ROOM_PLUG_DEV: connTags,
-		},
+	r.sockdhub.AddPlugConnection(sockdhub.PlugConnOptions{
+		TenantId: tenant,
+		UserId:   "",
+		GroupId:  "",
+		DeviceId: "",
+		Plug:     plug,
+		Conn:     conn,
 	})
+
 	if err != nil {
 		apiutils.WriteErr(c, err.Error())
 		return

@@ -125,7 +125,7 @@ export class AppService {
         }
 
         const dapi = await this.apm.get_dtable_api(source, group)
-        this._current_data_service = new DataGroupService(source, group, dapi, this.engine_service)
+        this._current_data_service = new DataGroupService(source, group, dapi, this.engine_service, this.apm.get_sockd_muxer())
         await this._current_data_service.init()
         return this._current_data_service
     }

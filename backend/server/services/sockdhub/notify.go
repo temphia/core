@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/temphia/core/backend/server/btypes"
 	"github.com/temphia/core/backend/server/btypes/models/entities"
 )
 
@@ -44,7 +43,7 @@ func (s *SockdHub) notify(tenantId, user string, nmsg notifyMessage) error {
 
 	return s.sockd.SendTagged(
 		tenantId,
-		btypes.ROOM_SYS_USERS,
+		ROOM_SYS_USERS,
 		[]string{fmt.Sprint("sys.user_", user)},
 		[]string{},
 		out,

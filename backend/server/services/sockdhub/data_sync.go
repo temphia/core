@@ -5,7 +5,6 @@ import (
 	"fmt"
 
 	"github.com/k0kubun/pp"
-	"github.com/temphia/core/backend/server/btypes"
 	"github.com/temphia/core/backend/server/btypes/store"
 )
 
@@ -60,7 +59,7 @@ func (s *SockdHub) pushRowMod(source, tenantId, groupId string, data *RowMod) er
 
 	return s.sockd.SendTagged(
 		tenantId,
-		btypes.ROOM_SYSTABLE,
+		ROOM_SYSTABLE,
 		[]string{fmt.Sprintf("dgroup.%s.%s", source, groupId)},
 		[]string{},
 		out,

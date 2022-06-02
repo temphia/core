@@ -5,6 +5,7 @@ import { defaultViewData, DirtyData, FilterItem, NavData, ViewData } from "./dat
 import { RowEditor } from "./roweditor"
 import type { CommonStore } from "./store"
 import type { EngineService, PlugExec } from "../engine"
+import type { SockdService } from "../sockd"
 
 
 export interface TableOptions {
@@ -16,6 +17,7 @@ export interface TableOptions {
     current_table: string
     store: CommonStore
     engine_service: EngineService
+    sockd_svc: SockdService
 }
 
 export class DataTableService {
@@ -33,12 +35,25 @@ export class DataTableService {
     loading: boolean
     row_editor: RowEditor
     hook_executor: HookExecutor
+    sockd_svc: SockdService
 
 
     constructor(opts: TableOptions) {
         this.api = opts.api
         this.dtable = opts.current_table
         this.store = opts.store
+        this.sockd_svc = opts.sockd_svc
+
+        console.log("DATA_TABLE_SERVICE", this)
+
+        const sockdroom = this.sockd_svc.get_dyn_room()
+
+        
+
+        sockdroom.onMessage((msg) => {
+            console.log("MESSAGE", msg)
+        })
+
 
         this.groupOpts = opts
         this.folderAPI = new FolderAPI(opts.api._api_base_url, opts.cabinet_ticket)

@@ -3,6 +3,7 @@ import { CommonStore } from "./store"
 import { DataTableService } from "./data_table"
 import type { EngineService } from "../engine"
 import type { FilterItem } from "./data_types"
+import type { SockdService } from "../sockd"
 
 export interface GroupOptions {
     tables: object[]
@@ -17,16 +18,18 @@ export class DataGroupService {
     groupAPI: DtableAPI
     store: CommonStore
     engine_service: EngineService
+    sockd_service: SockdService
 
     tmanagers: Map<string, DataTableService>
     options: GroupOptions
-    constructor(source: string, group: string, gapi: DtableAPI, es: EngineService) {
+    constructor(source: string, group: string, gapi: DtableAPI, es: EngineService, ss: SockdService) {
         this.source = source
         this.group = group
         this.groupAPI = gapi
         this.tmanagers = new Map()
         this.store = new CommonStore()
         this.engine_service = es
+        this.sockd_service = ss
     }
 
     init = async (): Promise<void> => {
@@ -55,6 +58,7 @@ export class DataGroupService {
                 tables: this.options.tables,
                 store: this.store,
                 engine_service: this.engine_service,
+                sockd_svc: this.sockd_service,
             })
             if (!opts) {
                 await svc.init()

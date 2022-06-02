@@ -1,16 +1,14 @@
 package routes
 
 import (
-	"fmt"
-
 	"github.com/gin-gonic/gin"
-	"github.com/temphia/core/backend/server/btypes"
 	"github.com/temphia/core/backend/server/btypes/models/claim"
 	"github.com/temphia/core/backend/server/btypes/models/entities"
 	"github.com/temphia/core/backend/server/btypes/service"
 	"github.com/temphia/core/backend/server/lib/apiutils"
 	"github.com/temphia/core/backend/server/lib/apiutils/request"
 	"github.com/temphia/core/backend/server/services/sockcore/transports"
+	"github.com/temphia/core/backend/server/services/sockdhub"
 )
 
 type messageUser struct {
@@ -79,7 +77,7 @@ func (r *R) UserSocketUpdate(ctx request.Ctx) {
 		return
 	}
 
-	err = r.sockd.RoomUpdateTags(
+	err = r.sockdhub.UpdateRoomTags(
 		ctx.Session.TenentID,
 		data.Room,
 		ctx.Session.SessionID,
@@ -106,15 +104,12 @@ func (r *R) SockdDgroupChange(ctx request.Ctx) {
 		return
 	}
 
-	err = r.sockd.RoomUpdateTags(
-		ctx.Session.TenentID,
-		btypes.ROOM_SYSTABLE,
-		ctx.Session.SessionID,
-		&service.UpdateTagOptions{
-			AddTags:    []string{fmt.Sprintf("dgroup.%s.%s", data.Source, data.Group)},
-			ClearOld:   true,
-			RemoveTags: []string{},
-		})
+	err = r.sockdhub.UpdateDynRoomTags(sockdhub.UpdateDynRoomTagsOptions{
+		TenantId:  ctx.Session.TenentID,
+		DynSource: data.Source,
+		DynGroup:  data.Group,
+		ConnId:    ctx.Session.SessionID,
+	})
 
 	r.WriteFinal(ctx.GinCtx, err)
 }
@@ -139,23 +134,14 @@ func (r *R) SelfUserSocket(c *gin.Context) {
 		return
 	}
 
-	connTags := []string{
-		fmt.Sprint("sys.user_", claim.UserID),
-		fmt.Sprint("sys.ugroup_", claim.UserGroup),
-		fmt.Sprint("sys.device_", claim.DeviceID),
-		btypes.TAG_REALUSER,
-		btypes.TAG_CONSOLE_CONN,
-	}
-
-	err = r.sockd.NewConnection(&service.ConnOptions{
-		NameSpace: tenant,
-		Conn:      conn,
-		Expiry:    10000,
-		PreJoinRooms: map[string][]string{
-			btypes.ROOM_SYS_USERS: connTags,
-			btypes.ROOM_SYSTABLE:  connTags,
-		},
+	r.sockdhub.AddUserConnOptions(sockdhub.UserConnOptions{
+		TenantId: tenant,
+		UserId:   claim.UserID,
+		GroupId:  claim.UserGroup,
+		DeviceId: claim.DeviceID,
+		Conn:     conn,
 	})
+
 	if err != nil {
 		apiutils.WriteErr(c, err.Error())
 		return

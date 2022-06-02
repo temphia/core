@@ -138,7 +138,6 @@ func (b *Builder) buildServices() error {
 		b.app.dynHub = dynhub.New(b.app, dyns)
 	}
 
-	b.app.sockd = sockcore.New()
 	b.app.coreHub = corehub.New(b.coreDB, b.app.sockd, b.cPlane)
 	b.app.pacman = pacman.New(b.app, b.repos)
 
