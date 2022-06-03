@@ -57,6 +57,13 @@
       to: "The Catalyzer",
       from: "Header",
       name: "link3",
+      weighted: false,
+    },
+    {
+      to: "The Catalyzer",
+      from: "Header",
+      name: "link3",
+      weighted: true,
     },
   ];
 
@@ -75,14 +82,20 @@
         toElem.left + toElem.width / 2,
       ];
 
+      const totalWeight =
+        fromElem.height + fromElem.width + toElem.height + toElem.width;
+
+      const fromWeight = fromElem.height + fromElem.width;
+      const toWeight = toElem.height + toElem.width;
+
       const distance = Math.hypot(
-        fromCenter[0]- toElemCenter[0],
-        fromCenter[1]- toElemCenter[1],
+        fromCenter[0] - toElemCenter[0],
+        fromCenter[1] - toElemCenter[1]
       );
 
       const angle = Math.atan2(
-        fromCenter[0]- toElemCenter[0],
-        fromCenter[1]- toElemCenter[1],
+        fromCenter[0] - toElemCenter[0],
+        fromCenter[1] - toElemCenter[1]
       );
 
       const final = [
@@ -93,6 +106,10 @@
 
         (fromCenter[0] + toElemCenter[0]) / 2,
         (fromCenter[1] + toElemCenter[1]) / 2,
+
+        // wighted center
+        (fromCenter[0] * toWeight + toElemCenter[0] * fromWeight) / totalWeight,
+        (fromCenter[1] * toWeight + toElemCenter[1] * fromWeight) / totalWeight,
       ];
 
       console.log("@final =>", final);
@@ -152,12 +169,21 @@
         style="top: {pos[0]}px; left: {pos[1]}px; width:{pos[2]}px; transform-origin: 0 0;  rotate: {pos[3]}deg;"
       />
 
-      <div
-        class="z-10 p-1 absolute bg-gray-600 hover:bg-gray-700 text-white rounded"
-        style="top: {pos[4]}px; left: {pos[5]}px;"
-      >
-        {link.name}
-      </div>
+      {#if link["weighted"]}
+        <div
+          class="z-10 mr-5 p-1 absolute bg-blue-600 hover:bg-blue-700 text-white rounded"
+          style="top: {pos[6]}px; left: {pos[7]}px;"
+        >
+          {link.name}
+        </div>
+      {:else}
+        <div
+          class="z-10 mr-5 p-1 absolute bg-gray-600 hover:bg-gray-700 text-white rounded"
+          style="top: {pos[4]}px; left: {pos[5]}px;"
+        >
+          {link.name}
+        </div>
+      {/if}
     {/if}
   {/each}
 </div>
