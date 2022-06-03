@@ -1,5 +1,8 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, onMount } from "svelte";
+  import { tick } from "svelte/internal";
+
+  export let name;
 
   const dispatch = createEventDispatcher();
 
@@ -32,6 +35,8 @@
     // set the element's new position:
     elmnt.style.top = elmnt.offsetTop - pos2 + "px";
     elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+
+    tick().then(dispatchPosition);
   }
 
   function closeDragElement() {
@@ -39,10 +44,24 @@
     document.onmouseup = null;
     document.onmousemove = null;
   }
+
+  const dispatchPosition = () => {
+    console.log("ELEM", elmnt);
+
+    dispatch("card_pos", {
+      name,
+      top: elmnt.offsetTop,
+      left: elmnt.offsetLeft,
+      height: elmnt.offsetHeight,
+      width: elmnt.offsetWidth,
+    });
+  };
+
+  onMount(dispatchPosition);
 </script>
 
 <div
-  class="absolute border bg-white shadow rounded"
+  class="absolute border bg-white z-20 shadow rounded"
   bind:this={elmnt}
   style="min-width: 5rem; min-height: 5rem;"
 >
@@ -52,7 +71,7 @@
   />
 
   <div
-    class="h-2 w-2 rounded-full absolute -right-1 top-1/2 bg-red-200 hover:bg-red-400"
+    class="h-2 w-2 rounded-full absolute right-1/2 top-1/2 bg-red-200 hover:bg-red-400"
   />
 
   <div class="p-2">

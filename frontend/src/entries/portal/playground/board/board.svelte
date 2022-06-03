@@ -20,7 +20,7 @@
       data: [],
     },
     {
-      name: "my list",
+      name: "Report",
       type: "richtext",
       data: [],
     },
@@ -46,11 +46,73 @@
       ],
     },
   ];
+
+  const links = [
+    {
+      from: "my list",
+      to: "Report",
+      name: "refers",
+    },
+    {
+      to: "The Catalyzer",
+      from: "Header",
+      name: "link3",
+    },
+  ];
+
+  $: __block_pos = {};
+
+  $: console.log("POS", __block_pos);
+
+  const calculateLink = (fromElem, toElem) => {
+    try {
+      const fromCenter = [
+        fromElem.top + fromElem.height / 2,
+        fromElem.left + fromElem.width / 2,
+      ];
+      const toElemCenter = [
+        toElem.top + toElem.height / 2,
+        toElem.left + toElem.width / 2,
+      ];
+
+      const distance = Math.hypot(
+        fromCenter[0]- toElemCenter[0],
+        fromCenter[1]- toElemCenter[1],
+      );
+
+      const angle = Math.atan2(
+        fromCenter[0]- toElemCenter[0],
+        fromCenter[1]- toElemCenter[1],
+      );
+
+      const final = [
+        toElemCenter[0],
+        toElemCenter[1],
+        distance,
+        (angle * 180) / Math.PI,
+
+        (fromCenter[0] + toElemCenter[0]) / 2,
+        (fromCenter[1] + toElemCenter[1]) / 2,
+      ];
+
+      console.log("@final =>", final);
+
+      return final;
+    } catch (error) {
+      return undefined;
+    }
+  };
 </script>
 
 <div class="w-full h-full relative bg-blue-100">
   {#each blocks as block}
-    <DraggableCard>
+    <DraggableCard
+      name={block.name}
+      on:card_pos={(ev) => {
+        __block_pos[ev.detail["name"]] = ev.detail;
+        __block_pos = { ...__block_pos };
+      }}
+    >
       <svelte:fragment>
         {#if block.type === "card"}
           <Card {block} />
@@ -79,5 +141,23 @@
         {/if}
       </svelte:fragment>
     </DraggableCard>
+  {/each}
+
+  {#each links as link}
+    {@const pos = calculateLink(__block_pos[link.to], __block_pos[link.from])}
+
+    {#if pos}
+      <div
+        class="h-1 z-10 absolute bg-gray-500 hover:bg-gray-700"
+        style="top: {pos[0]}px; left: {pos[1]}px; width:{pos[2]}px; transform-origin: 0 0;  rotate: {pos[3]}deg;"
+      />
+
+      <div
+        class="z-10 p-1 absolute bg-gray-600 hover:bg-gray-700 text-white rounded"
+        style="top: {pos[4]}px; left: {pos[5]}px;"
+      >
+        {link.name}
+      </div>
+    {/if}
   {/each}
 </div>
