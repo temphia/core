@@ -38,6 +38,8 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "@tiptap/core": "*",
+    "@tiptap/starter-kit": "*",
     "autoprefixer": "^10.3.3",
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",

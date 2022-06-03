@@ -1,5 +1,9 @@
 <script>
-  var pos1 = 0,
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
+  let pos1 = 0,
     pos2 = 0,
     pos3 = 0,
     pos4 = 0;
@@ -37,11 +41,20 @@
   }
 </script>
 
-<div class="absolute border bg-white shadow rounded" bind:this={elmnt}>
+<div
+  class="absolute border bg-white shadow rounded"
+  bind:this={elmnt}
+  style="min-width: 5rem; min-height: 5rem;"
+>
   <div
     class="h-2 cursor-pointer w-full bg-yellow-100 hover:bg-yellow-300"
     on:mousedown={dragMouseDown}
   />
+
+  <div
+    class="h-2 w-2 rounded-full absolute -right-1 top-1/2 bg-red-200 hover:bg-red-400"
+  />
+
   <div class="p-2">
     <slot />
   </div>
