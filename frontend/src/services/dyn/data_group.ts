@@ -59,6 +59,7 @@ export class DataGroupService {
                 store: this.store,
                 engine_service: this.engine_service,
                 sockd_svc: this.sockd_service,
+                source: this.source,
             })
             if (!opts) {
                 await svc.init()

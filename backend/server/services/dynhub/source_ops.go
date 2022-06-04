@@ -44,12 +44,10 @@ func (d *dynSource) UpdateRow(txid uint32, req store.UpdateRowReq) (map[string]i
 		return nil, err
 	}
 
-	err = d.hub.sockdhub.PushUpdateRow(d.source, d.tenantId, req.Group, req.Table, req.Data)
+	err = d.hub.sockdhub.PushUpdateRow(d.source, d.tenantId, req.Group, req.Table, req.Id, req.Data)
 	if err != nil {
 		pp.Println(err)
 	}
-
-	// fixme => push to sockd chan
 
 	return data, nil
 }

@@ -46,7 +46,7 @@ export class ApiManager {
         this._basic_api = await this._api_builder.get_basic_api()
         this._sockd = await this._api_builder.get_sockd_api()
         await sleep(500)
-        this._sockd_muxer = new SockdService(this._sockd)
+        this._sockd_muxer = new SockdService(this._basic_api, this._sockd)
     }
 
     get_sockd_muxer = () => {

@@ -100,7 +100,7 @@ export class CommonStore {
 
             let old_row = state.indexed_rows[row_id]
             if (old_row) {
-                state.indexed_rows[row_id]
+                state.indexed_rows[row_id] = {...old_row, ...data}
                 return { ...old, [table]: { ...state, indexed_rows: { ...state.indexed_rows } } }
             }
 

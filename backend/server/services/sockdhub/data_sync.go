@@ -33,10 +33,10 @@ func (s *SockdHub) PushNewRow(source, tenantId, groupId, table string, data map[
 	})
 }
 
-func (s *SockdHub) PushUpdateRow(source, tenantId, groupId, table string, data map[string]interface{}) error {
+func (s *SockdHub) PushUpdateRow(source, tenantId, groupId, table string, id int64, data map[string]interface{}) error {
 	return s.pushRowMod(source, tenantId, groupId, &RowMod{
 		Table:   table,
-		Rows:    []int64{},
+		Rows:    []int64{id},
 		ModType: "update",
 		Data:    data,
 	})

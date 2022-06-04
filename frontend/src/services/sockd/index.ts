@@ -13,8 +13,9 @@ export class SockdService {
     _dtable_room: SockdRoom
     _basicAPi: BasicAPI
 
-    constructor(sockd: Sockd) {
+    constructor(basic_api: BasicAPI, sockd: Sockd) {
         this._sockd = sockd
+        this._basicAPi = basic_api
         this._noti_room = new SockdRoom(sockd, SOCKD_NOTIFICATION_ROOM)
         this._dtable_room = new SockdRoom(sockd, SOCKD_DTABLE_ROOM)
         sockd.OnSockdMessage(this.handle)

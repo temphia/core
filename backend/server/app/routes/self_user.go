@@ -134,7 +134,7 @@ func (r *R) SelfUserSocket(c *gin.Context) {
 		return
 	}
 
-	r.sockdhub.AddUserConnOptions(sockdhub.UserConnOptions{
+	err = r.sockdhub.AddUserConnOptions(sockdhub.UserConnOptions{
 		TenantId: tenant,
 		UserId:   claim.UserID,
 		GroupId:  claim.UserGroup,

@@ -11,6 +11,7 @@ import type { SockdService } from "../sockd"
 export interface TableOptions {
     tables: object[]
     group: string
+    source: string
     cabinet_ticket: string
     sockd_ticket: string
     api: DtableAPI
@@ -44,17 +45,6 @@ export class DataTableService {
         this.store = opts.store
         this.sockd_svc = opts.sockd_svc
 
-        console.log("DATA_TABLE_SERVICE", this)
-
-        const sockdroom = this.sockd_svc.get_dyn_room()
-
-        
-
-        sockdroom.onMessage((msg) => {
-            console.log("MESSAGE", msg)
-        })
-
-
         this.groupOpts = opts
         this.folderAPI = new FolderAPI(opts.api._api_base_url, opts.cabinet_ticket)
 
@@ -87,6 +77,10 @@ export class DataTableService {
             return
         }
         this.saveData(data, false)
+
+        const sockdroom = this.sockd_svc.get_dyn_room();
+        sockdroom.onMessage(this.sockd_data_sync);
+        this.sockd_svc.change_group(this.groupOpts.source, this.groupOpts.group, this.groupOpts.sockd_ticket);
     }
 
     reset = async () => {
@@ -290,6 +284,44 @@ export class DataTableService {
     set_ref_callback = (fn: () => HTMLElement) => {
         this.hook_executor.get_target_ref = fn
     }
+
+    sockd_data_sync = (message) => {
+        /*
+                    {
+                "room": "sys.dtable",
+                "type": "server_publish",
+                "xid": "cadr9e0m4q742ae05jug",
+                "payload": {
+                  "table": "acc",
+                  "mod_type": "update",
+                  "data": {
+                    "__mod_sig": "{\"user_id\":\"superuser\",\"table_name\":\"default1_sb1_acc\"}",
+                    "__version": 1,
+                    "fullname": "brunch😜"
+                  }
+                }
+              }
+    
+        */
+        if (message["type"] !== "server_publish") {
+          return;
+        }
+    
+        const payload = message["payload"];
+    
+        switch (payload["mode_type"]) {
+          case "update":
+            this.store.set_row_data(this.dtable, {
+              __id: payload["rows"][0],
+              ...payload["data"],
+            });
+    
+            break;
+          default:
+            break;
+        }
+      };
+    
 }
 
 
