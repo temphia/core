@@ -29,6 +29,12 @@
       type: "simpletext",
       data: "This is one",
     },
+
+    {
+      name: "gallary1",
+      type: "gallery",
+      data: [],
+    },
     {
       name: "My Group 1",
       type: "group",
@@ -140,6 +146,8 @@
           <div class="bg-gray-100 p-2">{block.data}</div>
         {:else if block.type === "richtext"}
           <Textbox />
+        {:else if block.type === "gallery"}
+          <Gallery />
         {:else if block.type === "group"}
           {#each block.data || [] as inner}
             <div class="p-1 border rounded">
@@ -152,6 +160,8 @@
                 <div class="bg-gray-100 p-2">{inner.data}</div>
               {:else if inner.type === "richtext"}
                 <Textbox />
+              {:else if block.type === "gallery"}
+                <Gallery />
               {/if}
             </div>
           {/each}

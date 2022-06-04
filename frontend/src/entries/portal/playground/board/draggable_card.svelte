@@ -63,7 +63,7 @@
 <div
   class="absolute border bg-white z-20 shadow rounded"
   bind:this={elmnt}
-  style="min-width: 5rem; min-height: 5rem;"
+  style="min-width: 5rem; min-height: 5rem; resize: both;overflow: auto;"
 >
   <div
     class="h-2 cursor-pointer w-full bg-yellow-100 hover:bg-yellow-300"
@@ -74,7 +74,7 @@
     class="h-2 w-2 rounded-full absolute right-1/2 top-1/2 bg-red-200 hover:bg-red-400"
   />
 
-  <div class="p-2">
+  <div class="p-2 w-full">
     <slot />
   </div>
 </div>
